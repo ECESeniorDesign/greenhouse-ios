@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RootViewController.swift
 //  Greenhouse
 //
 //  Created by Chase Conklin on 3/10/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RootViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

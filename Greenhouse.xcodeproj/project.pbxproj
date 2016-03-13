@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AB20AAA51C9280310043C791 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB20AAA41C9280310043C791 /* AppDelegate.swift */; };
-		AB20AAA71C9280310043C791 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB20AAA61C9280310043C791 /* ViewController.swift */; };
+		AB20AAA71C9280310043C791 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB20AAA61C9280310043C791 /* RootViewController.swift */; };
 		AB20AAAA1C9280310043C791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB20AAA81C9280310043C791 /* Main.storyboard */; };
 		AB20AAAC1C9280310043C791 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB20AAAB1C9280310043C791 /* Assets.xcassets */; };
 		AB20AAAF1C9280310043C791 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB20AAAD1C9280310043C791 /* LaunchScreen.storyboard */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		AB20AAA11C9280310043C791 /* Greenhouse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Greenhouse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB20AAA41C9280310043C791 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AB20AAA61C9280310043C791 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AB20AAA61C9280310043C791 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		AB20AAA91C9280310043C791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AB20AAAB1C9280310043C791 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB20AAAE1C9280310043C791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				AB20AAA41C9280310043C791 /* AppDelegate.swift */,
-				AB20AAA61C9280310043C791 /* ViewController.swift */,
+				AB20AAA61C9280310043C791 /* RootViewController.swift */,
 				AB20AAA81C9280310043C791 /* Main.storyboard */,
 				AB20AAAB1C9280310043C791 /* Assets.xcassets */,
 				AB20AAAD1C9280310043C791 /* LaunchScreen.storyboard */,
@@ -256,7 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB20AAA71C9280310043C791 /* ViewController.swift in Sources */,
+				AB20AAA71C9280310043C791 /* RootViewController.swift in Sources */,
 				AB20AAA51C9280310043C791 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,6 +482,7 @@
 				AB20AACB1C9280320043C791 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AB20AACC1C9280320043C791 /* Build configuration list for PBXNativeTarget "GreenhouseTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +491,7 @@
 				AB20AACE1C9280320043C791 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AB20AACF1C9280320043C791 /* Build configuration list for PBXNativeTarget "GreenhouseUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +500,7 @@
 				AB20AAD11C9280320043C791 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

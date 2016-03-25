@@ -20,10 +20,13 @@ class RootViewController: UITableViewController, APIRequestDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.refreshControl?.addTarget(self, action: #selector(RootViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
-        reloadPlants()
-        addButton.enabled = false
     }
 
+    override func viewDidAppear(animated: Bool) {
+        addButton.enabled = false
+        reloadPlants()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -44,6 +47,7 @@ class RootViewController: UITableViewController, APIRequestDelegate {
                     parsedPlant.name = plant["name"].string
                     parsedPlant.photoURL = NSURL(string: plant["photo_url"].string!)
                     parsedPlant.plantDatabaseID = plant["plant_database_id"].int
+                    parsedPlant.slotID = plant["slot_id"].int
                     self.parsedPlants.append(parsedPlant)
                 }
             }
@@ -84,10 +88,20 @@ class RootViewController: UITableViewController, APIRequestDelegate {
         let plantDatabaseIds = parsedPlants.map({ parsedPlant in
             String(parsedPlant.plantDatabaseID!)
         })
+        let slotIds = parsedPlants.map({ parsedPlant in
+            parsedPlant.slotID!
+        })
+        var slotId : Int? = nil
+        for i in 1...2 {
+            if !slotIds.contains(i) {
+                slotId = i
+            }
+        }
         if segue.identifier == "newPlantSegue" {
             if let navigationVC = segue.destinationViewController as? UINavigationController {
                 if let newPlantVC = navigationVC.viewControllers.first as? NewPlantViewController {
                     newPlantVC.currentPlantIds = plantDatabaseIds
+                    newPlantVC.slotId = slotId
                 }
             }
         }

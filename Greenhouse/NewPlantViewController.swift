@@ -13,6 +13,7 @@ import SwiftHTTP
 class NewPlantViewController: UITableViewController, APIRequestDelegate {
 
     var currentPlantIds : [String]?
+    var slotId : Int?
     var parsedPlants : [ParsedPlant] = []
     
     @IBAction func cancelButtonPressed(sender: AnyObject) {
@@ -38,9 +39,11 @@ class NewPlantViewController: UITableViewController, APIRequestDelegate {
             let plants = JSON(data: dataValue).array
             parsedPlants.removeAll(keepCapacity: true)
             for plant in plants! {
+                print(plant)
                 let parsedPlant = ParsedPlant()
                 parsedPlant.name = plant["name"].string
                 parsedPlant.photoURL = NSURL(string: plant["photo_url"].string!)
+                parsedPlant.plantDatabaseID = plant["id"].int!
                 self.parsedPlants.append(parsedPlant)
             }
         } else {
@@ -71,6 +74,22 @@ class NewPlantViewController: UITableViewController, APIRequestDelegate {
             }
         }
         return cell
+    }
+    
+    override internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let row = indexPath.row
+        let plant = parsedPlants[row]
+        let params : [String: AnyObject] = ["plant_database_id": String(plant.plantDatabaseID!), "slot_id": String(self.slotId!)]
+        print(params)
+        do {
+            let opt = try HTTP.POST("http://localhost:5000/api/plants", parameters: params)
+            opt.start { response in
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+        } catch let error {
+            print("got an error creating the request: \(error)")
+        }
+
     }
     
     override func didReceiveMemoryWarning() {

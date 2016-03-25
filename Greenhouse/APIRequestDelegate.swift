@@ -1,5 +1,5 @@
 //
-//  GreenhouseAPIRequestDelegate.swift
+//  APIRequestDelegate.swift
 //  Greenhouse
 //
 //  Created by Chase Conklin on 3/25/16.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol GreenhouseAPIRequestDelegate {
+protocol APIRequestDelegate {
     func handlePlantData(data: NSData!)
 }

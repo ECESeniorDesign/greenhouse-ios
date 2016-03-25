@@ -102,10 +102,16 @@
                     <navigationItem key="navigationItem" title="Greenhouse" id="3hi-3X-A7u">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="qgt-eh-TMl">
                             <connections>
-                                <action selector="handleAddPlantButtonTapped:" destination="8bQ-BZ-1wM" id="OgY-Uh-hwc"/>
+                                <segue destination="rZv-qf-ZUq" kind="show" identifier="newPlantSegue" id="A0n-Ob-nI3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="yhq-xP-BEq">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </refreshControl>
+                    <connections>
+                        <outlet property="addButton" destination="qgt-eh-TMl" id="F6U-BX-Ehi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfq-Gs-Kat" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -126,6 +132,129 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JtG-0W-chO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1087.5" y="436.5"/>
+        </scene>
+        <!--New Plant Controller-->
+        <scene sceneID="kIR-Wp-Zsc">
+            <objects>
+                <tableViewController title="New Plant Controller" id="0DI-ge-5hH" customClass="NewPlantViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="183" sectionHeaderHeight="28" sectionFooterHeight="28" id="d2M-S9-BZn">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="plantCell" rowHeight="183" id="0JE-kg-xBd" customClass="ParsedPlantCell" customModule="Greenhouse" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0JE-kg-xBd" id="ixx-8x-Rhh">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Q4-uf-4Yu">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="ad6-Mp-2wK">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="150"/>
+                                                </constraint>
+                                                <constraint firstAttribute="height" constant="100" id="okK-ve-0Jv">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="150"/>
+                                                </constraint>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="okK-ve-0Jv"/>
+                                                    <exclude reference="ad6-Mp-2wK"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="constraints">
+                                                    <include reference="okK-ve-0Jv"/>
+                                                    <include reference="ad6-Mp-2wK"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJJ-b4-vQN">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eJJ-b4-vQN" firstAttribute="leading" secondItem="4Q4-uf-4Yu" secondAttribute="trailing" id="2xQ-ms-B5l">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="8"/>
+                                        </constraint>
+                                        <constraint firstItem="4Q4-uf-4Yu" firstAttribute="leading" secondItem="ixx-8x-Rhh" secondAttribute="leadingMargin" id="7Vw-au-r5H"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="4Q4-uf-4Yu" secondAttribute="bottom" constant="8" id="AXa-KU-njg"/>
+                                        <constraint firstItem="eJJ-b4-vQN" firstAttribute="top" secondItem="ixx-8x-Rhh" secondAttribute="topMargin" constant="8" id="T5v-N8-b3b"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="eJJ-b4-vQN" secondAttribute="trailing" id="Xw0-Um-ggn"/>
+                                        <constraint firstItem="4Q4-uf-4Yu" firstAttribute="top" secondItem="ixx-8x-Rhh" secondAttribute="topMargin" constant="8" id="ww6-GS-iKz"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="4Q4-uf-4Yu"/>
+                                            <exclude reference="eJJ-b4-vQN"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="7Vw-au-r5H"/>
+                                            <exclude reference="ww6-GS-iKz"/>
+                                            <exclude reference="AXa-KU-njg"/>
+                                            <exclude reference="Xw0-Um-ggn"/>
+                                            <exclude reference="2xQ-ms-B5l"/>
+                                            <exclude reference="T5v-N8-b3b"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="4Q4-uf-4Yu"/>
+                                            <include reference="eJJ-b4-vQN"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <include reference="7Vw-au-r5H"/>
+                                            <include reference="ww6-GS-iKz"/>
+                                            <exclude reference="AXa-KU-njg"/>
+                                            <include reference="Xw0-Um-ggn"/>
+                                            <include reference="2xQ-ms-B5l"/>
+                                            <include reference="T5v-N8-b3b"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="plantImage" destination="4Q4-uf-4Yu" id="Agy-6m-5el"/>
+                                    <outlet property="plantName" destination="eJJ-b4-vQN" id="qhz-tW-Aib"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0DI-ge-5hH" id="DcV-wy-JMc"/>
+                            <outlet property="delegate" destination="0DI-ge-5hH" id="f7f-Qg-PoD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Plant" id="18h-B1-7y2">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="lLW-wh-VDA">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="0DI-ge-5hH" id="LQF-pX-ate"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i81-2Q-29z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3576" y="436.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Jne-vm-OL4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rZv-qf-ZUq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n8n-qR-xrM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0DI-ge-5hH" kind="relationship" relationship="rootViewController" id="fO9-bA-Mc1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IDs-Ls-uff" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2658" y="436.5"/>
         </scene>
     </scenes>
 </document>

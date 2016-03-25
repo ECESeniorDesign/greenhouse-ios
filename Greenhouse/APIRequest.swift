@@ -1,5 +1,5 @@
 //
-//  GreenhouseAPIRequest.swift
+//  APIRequest.swift
 //  Greenhouse
 //
 //  Created by Chase Conklin on 3/25/16.
@@ -9,14 +9,14 @@
 import Foundation
 import SwiftHTTP
 
-class GreenhouseAPIRequest : NSObject {
+class APIRequest : NSObject {
     var urlString : String
     
     init(urlString: String) {
         self.urlString = urlString
     }
 
-    func sendRequest(delegate : GreenhouseAPIRequestDelegate) {
+    func sendGETRequest(delegate : APIRequestDelegate) {
         do {
             let opt = try HTTP.GET(self.urlString)
             opt.start { response in
@@ -24,6 +24,17 @@ class GreenhouseAPIRequest : NSObject {
                     print("error: \(err.localizedDescription)")
                     return
                 }
+                delegate.handlePlantData(response.data)
+            }
+        } catch let error {
+            print("got an error creating the request: \(error)")
+        }
+    }
+ 
+    func sendPOSTRequest(delegate : APIRequestDelegate, params : [String: AnyObject]) {
+        do {
+            let opt = try HTTP.POST(self.urlString, parameters: params, requestSerializer: JSONParameterSerializer())
+            opt.start { response in
                 delegate.handlePlantData(response.data)
             }
         } catch let error {

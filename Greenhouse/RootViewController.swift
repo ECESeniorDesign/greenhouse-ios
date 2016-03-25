@@ -9,13 +9,19 @@
 import UIKit
 import SwiftyJSON
 
-class RootViewController: UITableViewController, GreenhouseAPIRequestDelegate {
+let maxPlants = 2
+
+class RootViewController: UITableViewController, APIRequestDelegate {
+
+    @IBOutlet weak var addButton: UIBarButtonItem!
 
     var parsedPlants : [ParsedPlant] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refreshControl?.addTarget(self, action: #selector(RootViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         reloadPlants()
+        addButton.enabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,8 +30,8 @@ class RootViewController: UITableViewController, GreenhouseAPIRequestDelegate {
     }
 
     func reloadPlants() {
-        let apiRequest = GreenhouseAPIRequest(urlString: "http://localhost:5000/api/plants")
-        apiRequest.sendRequest(self)
+        let apiRequest = APIRequest(urlString: "http://localhost:5000/api/plants")
+        apiRequest.sendGETRequest(self)
     }
  
     func handlePlantData(data: NSData!) {
@@ -37,6 +43,7 @@ class RootViewController: UITableViewController, GreenhouseAPIRequestDelegate {
                     let parsedPlant = ParsedPlant()
                     parsedPlant.name = plant["name"].string
                     parsedPlant.photoURL = NSURL(string: plant["photo_url"].string!)
+                    parsedPlant.plantDatabaseID = plant["plant_database_id"].int
                     self.parsedPlants.append(parsedPlant)
                 }
             }
@@ -44,6 +51,9 @@ class RootViewController: UITableViewController, GreenhouseAPIRequestDelegate {
             print("handlePlantData received no data")
         }
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            if self.parsedPlants.count < maxPlants {
+                self.addButton.enabled = true
+            }
             self.tableView.reloadData()
         })
     }
@@ -60,8 +70,6 @@ class RootViewController: UITableViewController, GreenhouseAPIRequestDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("plantCell") as! ParsedPlantCell
         let parsedPlant = parsedPlants[indexPath.row]
         cell.plantName?.text = parsedPlant.name
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
         if parsedPlant.photoURL != nil {
             if let imageData = NSData(contentsOfURL: parsedPlant.photoURL!) {
                 cell.plantImage.image = UIImage(data: imageData)
@@ -71,9 +79,32 @@ class RootViewController: UITableViewController, GreenhouseAPIRequestDelegate {
         }
         return cell
     }
-    
-    @IBAction func handleAddPlantButtonTapped(sender: AnyObject) {
-        print("This feature is a WIP")
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let plantDatabaseIds = parsedPlants.map({ parsedPlant in
+            String(parsedPlant.plantDatabaseID!)
+        })
+        if segue.identifier == "newPlantSegue" {
+            if let navigationVC = segue.destinationViewController as? UINavigationController {
+                if let newPlantVC = navigationVC.viewControllers.first as? NewPlantViewController {
+                    newPlantVC.currentPlantIds = plantDatabaseIds
+                }
+            }
+        }
     }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if identifier == "newPlantSegue" {
+            return self.parsedPlants.count < maxPlants
+        }
+        return true
+    }
+
+    func handleRefresh(refreshControl: UIRefreshControl) {
+        reloadPlants()
+        addButton.enabled = false
+        refreshControl.endRefreshing()
+    }
+    
 }
 

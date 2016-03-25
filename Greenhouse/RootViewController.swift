@@ -7,10 +7,9 @@
 //
 
 import UIKit
-import SwiftHTTP
 import SwiftyJSON
 
-class RootViewController: UITableViewController {
+class RootViewController: UITableViewController, GreenhouseAPIRequestDelegate {
 
     var parsedPlants : [ParsedPlant] = []
     
@@ -25,18 +24,8 @@ class RootViewController: UITableViewController {
     }
 
     func reloadPlants() {
-        do {
-            let opt = try HTTP.GET("http://localhost:5000/api/plants")
-            opt.start { response in
-                if let err = response.error {
-                    print("error: \(err.localizedDescription)")
-                    return
-                }
-                self.handlePlantData(response.data)
-            }
-        } catch let error {
-            print("got an error creating the request: \(error)")
-        }
+        let apiRequest = GreenhouseAPIRequest(urlString: "http://localhost:5000/api/plants")
+        apiRequest.sendRequest(self)
     }
  
     func handlePlantData(data: NSData!) {

@@ -1,0 +1,34 @@
+//
+//  GreenhouseAPIRequest.swift
+//  Greenhouse
+//
+//  Created by Chase Conklin on 3/25/16.
+//  Copyright © 2016 ECESeniorDesign. All rights reserved.
+//
+
+import Foundation
+import SwiftHTTP
+
+class GreenhouseAPIRequest : NSObject {
+    var urlString : String
+    
+    init(urlString: String) {
+        self.urlString = urlString
+    }
+
+    func sendRequest(delegate : GreenhouseAPIRequestDelegate) {
+        do {
+            let opt = try HTTP.GET(self.urlString)
+            opt.start { response in
+                if let err = response.error {
+                    print("error: \(err.localizedDescription)")
+                    return
+                }
+                delegate.handlePlantData(response.data)
+            }
+        } catch let error {
+            print("got an error creating the request: \(error)")
+        }
+    }
+    
+}

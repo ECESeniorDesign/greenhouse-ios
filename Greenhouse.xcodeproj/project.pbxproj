@@ -16,6 +16,8 @@
 		AB20AAC51C9280320043C791 /* GreenhouseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB20AAC41C9280320043C791 /* GreenhouseUITests.swift */; };
 		AB3C860C1CA5803800190E42 /* ParsedPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C860B1CA5803800190E42 /* ParsedPlant.swift */; };
 		AB3C860E1CA589E600190E42 /* ParsedPlantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C860D1CA589E600190E42 /* ParsedPlantCell.swift */; };
+		AB3C86131CA59A0F00190E42 /* SwiftHTTP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C86121CA59A0F00190E42 /* SwiftHTTP.framework */; };
+		AB3C86151CA59F1B00190E42 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB3C86141CA59F1B00190E42 /* SwiftyJSON.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		AB20AAC61C9280320043C791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB3C860B1CA5803800190E42 /* ParsedPlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedPlant.swift; sourceTree = "<group>"; };
 		AB3C860D1CA589E600190E42 /* ParsedPlantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedPlantCell.swift; sourceTree = "<group>"; };
+		AB3C86121CA59A0F00190E42 /* SwiftHTTP.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftHTTP.framework; path = Carthage/Build/iOS/SwiftHTTP.framework; sourceTree = "<group>"; };
+		AB3C86141CA59F1B00190E42 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3C86151CA59F1B00190E42 /* SwiftyJSON.framework in Frameworks */,
+				AB3C86131CA59A0F00190E42 /* SwiftHTTP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +87,8 @@
 		AB20AA981C9280310043C791 = {
 			isa = PBXGroup;
 			children = (
+				AB3C86141CA59F1B00190E42 /* SwiftyJSON.framework */,
+				AB3C86121CA59A0F00190E42 /* SwiftHTTP.framework */,
 				AB20AAA31C9280310043C791 /* Greenhouse */,
 				AB20AAB81C9280320043C791 /* GreenhouseTests */,
 				AB20AAC31C9280320043C791 /* GreenhouseUITests */,
@@ -138,6 +146,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB20AAC91C9280320043C791 /* Build configuration list for PBXNativeTarget "Greenhouse" */;
 			buildPhases = (
+				AB3C86111CA5996A00190E42 /* ShellScript */,
 				AB20AA9D1C9280310043C791 /* Sources */,
 				AB20AA9E1C9280310043C791 /* Frameworks */,
 				AB20AA9F1C9280310043C791 /* Resources */,
@@ -256,6 +265,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AB3C86111CA5996A00190E42 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftHTTP.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AB20AA9D1C9280310043C791 /* Sources */ = {
@@ -405,6 +432,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Greenhouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eceseniordesign.Greenhouse;
@@ -416,6 +447,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Greenhouse/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.eceseniordesign.Greenhouse;

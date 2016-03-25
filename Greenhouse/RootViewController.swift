@@ -7,15 +7,12 @@
 //
 
 import UIKit
-
-let defaultPlantURL : NSURL? = NSURL(string: "http://www.cymaorchids.com/img/us/22/big/Lilac-Phal-Orchid-500x500.png")
-let defaultCondition : [String:Float]? = ["ideal": 15.0, "current": 11.3, "tolerance": 2.1]
+import SwiftHTTP
+import SwiftyJSON
 
 class RootViewController: UITableViewController {
 
-    let parsedPlants : [ParsedPlant] = [
-        ParsedPlant(name: "Orchid", photoURL: defaultPlantURL, light: defaultCondition, water: defaultCondition, humidity: defaultCondition, temperature: defaultCondition, matureOn: NSDate(), slotID: 1, plantDatabaseID: 4)
-    ]
+    var parsedPlants : [ParsedPlant] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +25,40 @@ class RootViewController: UITableViewController {
     }
 
     func reloadPlants() {
-        tableView.reloadData()
+        do {
+            let opt = try HTTP.GET("http://localhost:5000/api/plants")
+            opt.start { response in
+                if let err = response.error {
+                    print("error: \(err.localizedDescription)")
+                    return
+                }
+                self.handlePlantData(response.data)
+            }
+        } catch let error {
+            print("got an error creating the request: \(error)")
+        }
     }
  
+    func handlePlantData(data: NSData!) {
+        if let dataValue = data {
+            let json = JSON(data: dataValue)
+            if let plants = json["plants"].array {
+                parsedPlants.removeAll(keepCapacity: true)
+                for plant in plants {
+                    let parsedPlant = ParsedPlant()
+                    parsedPlant.name = plant["name"].string
+                    parsedPlant.photoURL = NSURL(string: plant["photo_url"].string!)
+                    self.parsedPlants.append(parsedPlant)
+                }
+            }
+        } else {
+            print("handlePlantData received no data")
+        }
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
+    }
+    
     override internal func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
@@ -45,8 +73,6 @@ class RootViewController: UITableViewController {
         cell.plantName?.text = parsedPlant.name
         let formatter = NSDateFormatter()
         formatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        let matureDate = formatter.stringFromDate(parsedPlant.matureOn!)
-        cell.plantMaturity?.text = matureDate
         if parsedPlant.photoURL != nil {
             if let imageData = NSData(contentsOfURL: parsedPlant.photoURL!) {
                 cell.plantImage.image = UIImage(data: imageData)
@@ -57,5 +83,8 @@ class RootViewController: UITableViewController {
         return cell
     }
     
+    @IBAction func handleAddPlantButtonTapped(sender: AnyObject) {
+        print("This feature is a WIP")
+    }
 }
 

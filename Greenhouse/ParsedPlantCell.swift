@@ -11,6 +11,4 @@ import UIKit
 class ParsedPlantCell: UITableViewCell {
     @IBOutlet weak var plantName: UILabel!
     @IBOutlet weak var plantImage: UIImageView!
-    @IBOutlet weak var plantMaturity: UILabel!
-
 }

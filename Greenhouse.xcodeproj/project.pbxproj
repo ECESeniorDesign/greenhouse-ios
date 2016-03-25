@@ -14,6 +14,8 @@
 		AB20AAAF1C9280310043C791 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB20AAAD1C9280310043C791 /* LaunchScreen.storyboard */; };
 		AB20AABA1C9280320043C791 /* GreenhouseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB20AAB91C9280320043C791 /* GreenhouseTests.swift */; };
 		AB20AAC51C9280320043C791 /* GreenhouseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB20AAC41C9280320043C791 /* GreenhouseUITests.swift */; };
+		AB3C860C1CA5803800190E42 /* ParsedPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C860B1CA5803800190E42 /* ParsedPlant.swift */; };
+		AB3C860E1CA589E600190E42 /* ParsedPlantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C860D1CA589E600190E42 /* ParsedPlantCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		AB20AAC01C9280320043C791 /* GreenhouseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreenhouseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB20AAC41C9280320043C791 /* GreenhouseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenhouseUITests.swift; sourceTree = "<group>"; };
 		AB20AAC61C9280320043C791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB3C860B1CA5803800190E42 /* ParsedPlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedPlant.swift; sourceTree = "<group>"; };
+		AB3C860D1CA589E600190E42 /* ParsedPlantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedPlantCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +104,11 @@
 				AB20AAA41C9280310043C791 /* AppDelegate.swift */,
 				AB20AAA61C9280310043C791 /* RootViewController.swift */,
 				AB20AAA81C9280310043C791 /* Main.storyboard */,
+				AB3C860D1CA589E600190E42 /* ParsedPlantCell.swift */,
 				AB20AAAB1C9280310043C791 /* Assets.xcassets */,
 				AB20AAAD1C9280310043C791 /* LaunchScreen.storyboard */,
 				AB20AAB01C9280310043C791 /* Info.plist */,
+				AB3C860B1CA5803800190E42 /* ParsedPlant.swift */,
 			);
 			path = Greenhouse;
 			sourceTree = "<group>";
@@ -256,7 +262,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB3C860C1CA5803800190E42 /* ParsedPlant.swift in Sources */,
 				AB20AAA71C9280310043C791 /* RootViewController.swift in Sources */,
+				AB3C860E1CA589E600190E42 /* ParsedPlantCell.swift in Sources */,
 				AB20AAA51C9280310043C791 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

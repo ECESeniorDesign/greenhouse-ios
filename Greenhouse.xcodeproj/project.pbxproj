@@ -21,6 +21,7 @@
 		AB3C86171CA5A6F700190E42 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C86161CA5A6F700190E42 /* APIRequest.swift */; };
 		AB3C86191CA5A7FA00190E42 /* APIRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C86181CA5A7FA00190E42 /* APIRequestDelegate.swift */; };
 		AB3C861B1CA5B73100190E42 /* NewPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C861A1CA5B73100190E42 /* NewPlantViewController.swift */; };
+		ABACDC8A1CA6E77300FE0ED2 /* PlantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABACDC891CA6E77300FE0ED2 /* PlantDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		AB3C86161CA5A6F700190E42 /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		AB3C86181CA5A7FA00190E42 /* APIRequestDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestDelegate.swift; sourceTree = "<group>"; };
 		AB3C861A1CA5B73100190E42 /* NewPlantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlantViewController.swift; sourceTree = "<group>"; };
+		ABACDC891CA6E77300FE0ED2 /* PlantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 				AB3C86161CA5A6F700190E42 /* APIRequest.swift */,
 				AB3C86181CA5A7FA00190E42 /* APIRequestDelegate.swift */,
 				AB3C861A1CA5B73100190E42 /* NewPlantViewController.swift */,
+				ABACDC891CA6E77300FE0ED2 /* PlantDetailViewController.swift */,
 			);
 			path = Greenhouse;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				AB3C860C1CA5803800190E42 /* ParsedPlant.swift in Sources */,
 				AB20AAA71C9280310043C791 /* RootViewController.swift in Sources */,
 				AB3C861B1CA5B73100190E42 /* NewPlantViewController.swift in Sources */,
+				ABACDC8A1CA6E77300FE0ED2 /* PlantDetailViewController.swift in Sources */,
 				AB3C86191CA5A7FA00190E42 /* APIRequestDelegate.swift in Sources */,
 				AB3C86171CA5A6F700190E42 /* APIRequest.swift in Sources */,
 				AB3C860E1CA589E600190E42 /* ParsedPlantCell.swift in Sources */,

@@ -85,24 +85,30 @@ class RootViewController: UITableViewController, APIRequestDelegate {
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let plantDatabaseIds = parsedPlants.map({ parsedPlant in
-            String(parsedPlant.plantDatabaseID!)
-        })
-        let slotIds = parsedPlants.map({ parsedPlant in
-            parsedPlant.slotID!
-        })
-        var slotId : Int? = nil
-        for i in 1...2 {
-            if !slotIds.contains(i) {
-                slotId = i
-            }
-        }
         if segue.identifier == "newPlantSegue" {
+            let plantDatabaseIds = parsedPlants.map({ parsedPlant in
+                String(parsedPlant.plantDatabaseID!)
+            })
+            let slotIds = parsedPlants.map({ parsedPlant in
+                parsedPlant.slotID!
+            })
+            var slotId : Int? = nil
+            for i in 1...2 {
+                if !slotIds.contains(i) {
+                    slotId = i
+                }
+            }
             if let navigationVC = segue.destinationViewController as? UINavigationController {
                 if let newPlantVC = navigationVC.viewControllers.first as? NewPlantViewController {
                     newPlantVC.currentPlantIds = plantDatabaseIds
                     newPlantVC.slotId = slotId
                 }
+            }
+        } else if segue.identifier == "plantDetailSegue" {
+            if let plantDetailVC = segue.destinationViewController as? PlantDetailViewController {
+                let row = tableView!.indexPathForSelectedRow!.row
+                let selectedPlant = parsedPlants[row] as ParsedPlant
+                plantDetailVC.plant = selectedPlant
             }
         }
     }

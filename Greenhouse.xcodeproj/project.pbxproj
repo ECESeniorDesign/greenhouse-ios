@@ -22,6 +22,7 @@
 		AB3C86191CA5A7FA00190E42 /* APIRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C86181CA5A7FA00190E42 /* APIRequestDelegate.swift */; };
 		AB3C861B1CA5B73100190E42 /* NewPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C861A1CA5B73100190E42 /* NewPlantViewController.swift */; };
 		ABACDC8A1CA6E77300FE0ED2 /* PlantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABACDC891CA6E77300FE0ED2 /* PlantDetailViewController.swift */; };
+		ABACDC8C1CA740E000FE0ED2 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABACDC8B1CA740E000FE0ED2 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		AB3C86181CA5A7FA00190E42 /* APIRequestDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestDelegate.swift; sourceTree = "<group>"; };
 		AB3C861A1CA5B73100190E42 /* NewPlantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlantViewController.swift; sourceTree = "<group>"; };
 		ABACDC891CA6E77300FE0ED2 /* PlantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantDetailViewController.swift; sourceTree = "<group>"; };
+		ABACDC8B1CA740E000FE0ED2 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				AB3C86181CA5A7FA00190E42 /* APIRequestDelegate.swift */,
 				AB3C861A1CA5B73100190E42 /* NewPlantViewController.swift */,
 				ABACDC891CA6E77300FE0ED2 /* PlantDetailViewController.swift */,
+				ABACDC8B1CA740E000FE0ED2 /* Media.xcassets */,
 			);
 			path = Greenhouse;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 			files = (
 				AB20AAAF1C9280310043C791 /* LaunchScreen.storyboard in Resources */,
 				AB20AAAC1C9280310043C791 /* Assets.xcassets in Resources */,
+				ABACDC8C1CA740E000FE0ED2 /* Media.xcassets in Resources */,
 				AB20AAAA1C9280310043C791 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

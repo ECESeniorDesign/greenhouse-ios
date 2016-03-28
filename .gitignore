@@ -1,1 +1,4 @@
 Carthage/
+.DS_Store
+Greenhouse.xcodeproj/project.xcworkspace/xcuserdata/
+Greenhouse.xcodeproj/xcuserdata/chase.xcuserdatad/xcdebugger/

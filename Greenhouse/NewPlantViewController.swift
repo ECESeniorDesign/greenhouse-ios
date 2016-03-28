@@ -36,15 +36,18 @@ class NewPlantViewController: UITableViewController, APIRequestDelegate {
 
     func handlePlantData(data: NSData!) {
         if let dataValue = data {
-            let plants = JSON(data: dataValue).array
-            parsedPlants.removeAll(keepCapacity: true)
-            for plant in plants! {
-                print(plant)
-                let parsedPlant = ParsedPlant()
-                parsedPlant.name = plant["name"].string
-                parsedPlant.photoURL = NSURL(string: plant["photo_url"].string!)
-                parsedPlant.plantDatabaseID = plant["id"].int!
-                self.parsedPlants.append(parsedPlant)
+            if let plants = JSON(data: dataValue).array {
+                parsedPlants.removeAll(keepCapacity: true)
+                for plant in plants {
+                    print(plant)
+                    let parsedPlant = ParsedPlant()
+                    parsedPlant.name = plant["name"].string
+                    parsedPlant.photoURL = NSURL(string: plant["photo_url"].string!)
+                    parsedPlant.plantDatabaseID = plant["id"].int!
+                    self.parsedPlants.append(parsedPlant)
+                }
+            } else {
+                print("cannot connect to Plant Database")
             }
         } else {
             print("handlePlantData received no data")

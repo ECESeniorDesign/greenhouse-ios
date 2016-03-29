@@ -22,7 +22,7 @@ class NewPlantViewController: UITableViewController, APIRequestDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let params : [String: AnyObject] = ["ids": ["4"]]
+        let params : [String: AnyObject] = ["ids": currentPlantIds!]
         do {
             let opt = try HTTP.POST("http://localhost:4000/api/plants/compatible", parameters: params, requestSerializer: JSONParameterSerializer())
             opt.start { response in
@@ -39,7 +39,6 @@ class NewPlantViewController: UITableViewController, APIRequestDelegate {
             if let plants = JSON(data: dataValue).array {
                 parsedPlants.removeAll(keepCapacity: true)
                 for plant in plants {
-                    print(plant)
                     let parsedPlant = ParsedPlant()
                     parsedPlant.name = plant["name"].string
                     parsedPlant.photoURL = NSURL(string: plant["photo_url"].string!)

@@ -48,6 +48,11 @@ class NewPlantViewController: UITableViewController, APIRequestDelegate {
                 }
             } else {
                 print("cannot connect to Plant Database")
+                let alert = UIAlertController(title: "Cannot Connect to Plant Database", message: "The Plant Database is inaccessible", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { action in
+                    self.dismissViewControllerAnimated(true, completion: nil)                
+                }))
+                self.presentViewController(alert, animated: true, completion: nil)
             }
         } else {
             print("handlePlantData received no data")

@@ -35,6 +35,10 @@ class APIRequest : NSObject {
         do {
             let opt = try HTTP.POST(self.urlString, parameters: params, requestSerializer: JSONParameterSerializer())
             opt.start { response in
+                if let err = response.error {
+                    print("error: \(err.localizedDescription)")
+                    return
+                }                
                 delegate.handlePlantData(response.data)
             }
         } catch let error {

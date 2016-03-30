@@ -46,4 +46,18 @@ class APIRequest : NSObject {
         }
     }
     
+    func sendDeleteRequest() {
+        do {
+            let opt = try HTTP.DELETE(self.urlString)
+            opt.start { response in
+                if let err = response.error {
+                    print("error: \(err.localizedDescription)")
+                    return
+                }
+            }
+        } catch let error {
+            print("got an error creating the request: \(error)")
+        }
+    }
+    
 }

@@ -125,6 +125,9 @@ class RootViewController: UITableViewController, APIRequestDelegate {
         addButton.enabled = false
         refreshControl.endRefreshing()
     }
+    @IBAction func unwindToRootController (segue: UIStoryboardSegue?) {
+    }
+
     
 }
 

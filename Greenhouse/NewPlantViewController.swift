@@ -87,7 +87,6 @@ class NewPlantViewController: UITableViewController, APIRequestDelegate {
         let row = indexPath.row
         let plant = parsedPlants[row]
         let params : [String: AnyObject] = ["plant_database_id": String(plant.plantDatabaseID!), "slot_id": String(self.slotId!)]
-        print(params)
         do {
             let opt = try HTTP.POST("http://localhost:5000/api/plants", parameters: params)
             opt.start { response in

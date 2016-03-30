@@ -32,6 +32,8 @@ class PlantDetailViewController: UIViewController, APIRequestDelegate {
             self.plant = ParsedPlant()
             self.plant?.name = plantData["name"].string!
             self.plant?.photoURL = NSURL(string: plantData["photo_url"].string!)
+            self.plant?.slotID = plantData["slot_id"].int
+            self.plant?.plantDatabaseID = plantData["id"].int
 
             // Load the conditions
             // Q: is there an easier way?
@@ -87,21 +89,28 @@ class PlantDetailViewController: UIViewController, APIRequestDelegate {
         }
     }
     
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        loadPlant()
-    }
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadPlant()
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    // TODO: add segue that passes plant information to settings controller
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "plantSettingSegue" {
+            if let navigationVC = segue.destinationViewController as? UINavigationController {
+                if let plantSettingsVC = navigationVC.viewControllers.first as? PlantSettingViewController {
+                    plantSettingsVC.plant = plant
+                }
+            }
+        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    
 }

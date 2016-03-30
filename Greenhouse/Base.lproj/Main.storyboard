@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WUy-He-mk7">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="WUy-He-mk7">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -49,7 +49,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRp-Wx-Rd4">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -180,7 +180,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJJ-b4-vQN">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -246,6 +246,101 @@
             </objects>
             <point key="canvasLocation" x="3576" y="436.5"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="S9D-1O-klD">
+            <objects>
+                <navigationController id="9OV-0w-7EZ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ot3-Bx-pqY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="wQ4-GR-KBn" kind="relationship" relationship="rootViewController" id="xDP-eN-He7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nSH-0Q-ISf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3576" y="-201"/>
+        </scene>
+        <!--Edit Plant-->
+        <scene sceneID="J3r-2p-8M2">
+            <objects>
+                <viewController id="wQ4-GR-KBn" customClass="PlantSettingViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EnO-qi-ied"/>
+                        <viewControllerLayoutGuide type="bottom" id="c3r-8p-xqV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3Ap-H1-C9s">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZF-FW-RYH">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Bwl-Gb-YYF"/>
+                                </constraints>
+                                <state key="normal" title="Delete"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Bwl-Gb-YYF"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Bwl-Gb-YYF"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="deleteButtonPressed:" destination="wQ4-GR-KBn" eventType="touchUpInside" id="FSO-44-ujO"/>
+                                    <segue destination="xbz-d1-pT6" kind="unwind" unwindAction="unwindToRootController:" id="yQ9-qZ-I9Q"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="c3r-8p-xqV" firstAttribute="top" secondItem="dZF-FW-RYH" secondAttribute="bottom" constant="64" id="HTD-2h-eWG"/>
+                            <constraint firstItem="dZF-FW-RYH" firstAttribute="leading" secondItem="3Ap-H1-C9s" secondAttribute="leading" id="Tkc-sc-vGu"/>
+                            <constraint firstAttribute="trailing" secondItem="dZF-FW-RYH" secondAttribute="trailing" id="n4b-lc-zl7"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="dZF-FW-RYH"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Tkc-sc-vGu"/>
+                                <exclude reference="n4b-lc-zl7"/>
+                                <exclude reference="HTD-2h-eWG"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="dZF-FW-RYH"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Tkc-sc-vGu"/>
+                                <include reference="n4b-lc-zl7"/>
+                                <include reference="HTD-2h-eWG"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Plant" id="rn6-eE-tCP">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uhx-Hc-b7Q">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="wQ4-GR-KBn" id="15t-wL-cmD"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="1rW-Qz-bS7">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="wQ4-GR-KBn" id="g0S-gc-kTO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dX6-Rs-Xuf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xbz-d1-pT6" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4360.5" y="-201"/>
+        </scene>
         <!--Plant Detail-->
         <scene sceneID="9HR-8Q-bOB">
             <objects>
@@ -255,6 +350,7 @@
                         <viewControllerLayoutGuide type="bottom" id="jYd-4Y-BNm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rnJ-CJ-EeI">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vsg-Ot-iIY">
@@ -282,61 +378,61 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Water" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VmB-fz-QoI">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Humidity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1b-H6-gbc">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeW-DB-Kc5">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Light" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXO-vf-6mj">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CurrentWater" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6M0-8x-pyA">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CurrentHumidity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZTS-If-8gA">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CurrentTemperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0R9-Pu-acQ">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mature On" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFl-gq-fUd">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MatureDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqL-qm-eKP">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CurrentLight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPR-uH-6G3">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -387,6 +483,26 @@
                                 <exclude reference="rPR-uH-6G3"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="BYl-e3-afJ"/>
+                                <exclude reference="Q6P-hv-W9l"/>
+                                <exclude reference="jyU-tv-tc7"/>
+                                <exclude reference="qPQ-Fj-C6v"/>
+                                <exclude reference="M0F-Tb-O5P"/>
+                                <exclude reference="x6L-zD-s52"/>
+                                <exclude reference="5kh-PN-MsW"/>
+                                <exclude reference="gMm-dS-bTX"/>
+                                <exclude reference="Xh4-jT-mnC"/>
+                                <exclude reference="u5C-Fc-Nyi"/>
+                                <exclude reference="6Td-Og-uqj"/>
+                                <exclude reference="VVh-Sv-ByH"/>
+                                <exclude reference="hdk-nw-JFK"/>
+                                <exclude reference="je2-7y-P03"/>
+                                <exclude reference="2TL-cq-GcG"/>
+                                <exclude reference="JpF-eu-NQV"/>
+                                <exclude reference="EQ4-uq-1aC"/>
+                                <exclude reference="pnI-Vz-9pF"/>
+                                <exclude reference="TR4-7s-jTi"/>
+                                <exclude reference="n5w-Jv-KaJ"/>
                                 <exclude reference="0Nx-NM-Ngc"/>
                                 <exclude reference="6Eg-14-dBk"/>
                                 <exclude reference="KiF-DP-aMB"/>
@@ -394,26 +510,6 @@
                                 <exclude reference="UUv-HQ-qRF"/>
                                 <exclude reference="YPI-sX-PT7"/>
                                 <exclude reference="wDK-m1-oaa"/>
-                                <exclude reference="TR4-7s-jTi"/>
-                                <exclude reference="n5w-Jv-KaJ"/>
-                                <exclude reference="Xh4-jT-mnC"/>
-                                <exclude reference="u5C-Fc-Nyi"/>
-                                <exclude reference="5kh-PN-MsW"/>
-                                <exclude reference="gMm-dS-bTX"/>
-                                <exclude reference="M0F-Tb-O5P"/>
-                                <exclude reference="x6L-zD-s52"/>
-                                <exclude reference="2TL-cq-GcG"/>
-                                <exclude reference="JpF-eu-NQV"/>
-                                <exclude reference="EQ4-uq-1aC"/>
-                                <exclude reference="pnI-Vz-9pF"/>
-                                <exclude reference="jyU-tv-tc7"/>
-                                <exclude reference="qPQ-Fj-C6v"/>
-                                <exclude reference="6Td-Og-uqj"/>
-                                <exclude reference="VVh-Sv-ByH"/>
-                                <exclude reference="BYl-e3-afJ"/>
-                                <exclude reference="Q6P-hv-W9l"/>
-                                <exclude reference="hdk-nw-JFK"/>
-                                <exclude reference="je2-7y-P03"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -431,6 +527,26 @@
                                 <include reference="rPR-uH-6G3"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="BYl-e3-afJ"/>
+                                <include reference="Q6P-hv-W9l"/>
+                                <include reference="jyU-tv-tc7"/>
+                                <include reference="qPQ-Fj-C6v"/>
+                                <include reference="M0F-Tb-O5P"/>
+                                <include reference="x6L-zD-s52"/>
+                                <include reference="5kh-PN-MsW"/>
+                                <include reference="gMm-dS-bTX"/>
+                                <include reference="Xh4-jT-mnC"/>
+                                <include reference="u5C-Fc-Nyi"/>
+                                <include reference="6Td-Og-uqj"/>
+                                <include reference="VVh-Sv-ByH"/>
+                                <include reference="hdk-nw-JFK"/>
+                                <include reference="je2-7y-P03"/>
+                                <include reference="2TL-cq-GcG"/>
+                                <include reference="JpF-eu-NQV"/>
+                                <include reference="EQ4-uq-1aC"/>
+                                <include reference="pnI-Vz-9pF"/>
+                                <include reference="TR4-7s-jTi"/>
+                                <include reference="n5w-Jv-KaJ"/>
                                 <exclude reference="0Nx-NM-Ngc"/>
                                 <include reference="6Eg-14-dBk"/>
                                 <exclude reference="KiF-DP-aMB"/>
@@ -438,30 +554,16 @@
                                 <include reference="UUv-HQ-qRF"/>
                                 <exclude reference="YPI-sX-PT7"/>
                                 <exclude reference="wDK-m1-oaa"/>
-                                <include reference="TR4-7s-jTi"/>
-                                <include reference="n5w-Jv-KaJ"/>
-                                <include reference="Xh4-jT-mnC"/>
-                                <include reference="u5C-Fc-Nyi"/>
-                                <include reference="5kh-PN-MsW"/>
-                                <include reference="gMm-dS-bTX"/>
-                                <include reference="M0F-Tb-O5P"/>
-                                <include reference="x6L-zD-s52"/>
-                                <include reference="2TL-cq-GcG"/>
-                                <include reference="JpF-eu-NQV"/>
-                                <include reference="EQ4-uq-1aC"/>
-                                <include reference="pnI-Vz-9pF"/>
-                                <include reference="jyU-tv-tc7"/>
-                                <include reference="qPQ-Fj-C6v"/>
-                                <include reference="6Td-Og-uqj"/>
-                                <include reference="VVh-Sv-ByH"/>
-                                <include reference="BYl-e3-afJ"/>
-                                <include reference="Q6P-hv-W9l"/>
-                                <include reference="hdk-nw-JFK"/>
-                                <include reference="je2-7y-P03"/>
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Plant Detail" id="4K3-RJ-Oex"/>
+                    <navigationItem key="navigationItem" title="Plant Detail" id="4K3-RJ-Oex">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="0XJ-gQ-jJL">
+                            <connections>
+                                <segue destination="9OV-0w-7EZ" kind="showDetail" identifier="plantSettingSegue" id="7tB-rg-FYd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="currentHumidity" destination="ZTS-If-8gA" id="hHK-PK-0ZS"/>
                         <outlet property="currentLight" destination="rPR-uH-6G3" id="ovL-Gc-VIP"/>

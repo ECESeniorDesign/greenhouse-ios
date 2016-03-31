@@ -22,7 +22,7 @@ class PlantDetailViewController: UIViewController, APIRequestDelegate {
     
     func loadPlant() {
         displayBasicInfo()
-        let apiRequest = APIRequest(urlString: "http://localhost:5000/api/plants/\(plant!.slotID!)")
+        let apiRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/plants/\(plant!.slotID!)")
         apiRequest.sendGETRequest(self)
     }
 

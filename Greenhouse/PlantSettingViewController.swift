@@ -13,8 +13,7 @@ class PlantSettingViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBAction func deleteButtonPressed(sender: AnyObject) {
-        print("delete button pressed")
-        let apiRequest = APIRequest(urlString: "http://localhost:5000/api/plants/\(plant!.slotID!)")
+        let apiRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/plants/\(plant!.slotID!)")
         apiRequest.sendDeleteRequest()
     }
     @IBAction func doneButtonPressed(sender: AnyObject) {

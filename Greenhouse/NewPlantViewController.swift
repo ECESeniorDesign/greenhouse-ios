@@ -24,7 +24,7 @@ class NewPlantViewController: UITableViewController, APIRequestDelegate {
         super.viewDidLoad()
         let params : [String: AnyObject] = ["ids": currentPlantIds!]
         do {
-            let opt = try HTTP.POST("http://localhost:4000/api/plants/compatible", parameters: params, requestSerializer: JSONParameterSerializer())
+            let opt = try HTTP.POST("http://\(Config.plant_database)/api/plants/compatible", parameters: params, requestSerializer: JSONParameterSerializer())
             opt.start { response in
                 self.handlePlantData(response.data)
             }
@@ -88,7 +88,7 @@ class NewPlantViewController: UITableViewController, APIRequestDelegate {
         let plant = parsedPlants[row]
         let params : [String: AnyObject] = ["plant_database_id": String(plant.plantDatabaseID!), "slot_id": String(self.slotId!)]
         do {
-            let opt = try HTTP.POST("http://localhost:5000/api/plants", parameters: params)
+            let opt = try HTTP.POST("http://\(Config.greenhouse)/api/plants", parameters: params)
             opt.start { response in
                 self.dismissViewControllerAnimated(true, completion: nil)
             }

@@ -33,7 +33,7 @@ class RootViewController: UITableViewController, APIRequestDelegate {
     }
 
     func reloadPlants() {
-        let apiRequest = APIRequest(urlString: "http://localhost:5000/api/plants")
+        let apiRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/plants")
         apiRequest.sendGETRequest(self)
     }
  

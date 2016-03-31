@@ -9,5 +9,5 @@
 import Foundation
 
 protocol APIRequestDelegate {
-    func handlePlantData(data: NSData!)
+    func handleData(data: NSData!)
 }

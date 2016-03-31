@@ -26,7 +26,7 @@ class NewPlantViewController: UITableViewController, APIRequestDelegate {
         do {
             let opt = try HTTP.POST("http://\(Config.plant_database)/api/plants/compatible", parameters: params, requestSerializer: JSONParameterSerializer())
             opt.start { response in
-                self.handlePlantData(response.data)
+                self.handleData(response.data)
             }
         } catch let error {
             print("got an error creating the request: \(error)")
@@ -34,7 +34,7 @@ class NewPlantViewController: UITableViewController, APIRequestDelegate {
 
     }
 
-    func handlePlantData(data: NSData!) {
+    func handleData(data: NSData!) {
         if let dataValue = data {
             if let plants = JSON(data: dataValue).array {
                 parsedPlants.removeAll(keepCapacity: true)
@@ -54,7 +54,7 @@ class NewPlantViewController: UITableViewController, APIRequestDelegate {
                 self.presentViewController(alert, animated: true, completion: nil)
             }
         } else {
-            print("handlePlantData received no data")
+            print("handleData received no data")
         }
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             self.tableView.reloadData()

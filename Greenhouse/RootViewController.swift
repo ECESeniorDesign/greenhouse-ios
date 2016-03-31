@@ -37,7 +37,7 @@ class RootViewController: UITableViewController, APIRequestDelegate {
         apiRequest.sendGETRequest(self)
     }
  
-    func handlePlantData(data: NSData!) {
+    func handleData(data: NSData!) {
         if let dataValue = data {
             let json = JSON(data: dataValue)
             if let plants = json["plants"].array {
@@ -52,7 +52,7 @@ class RootViewController: UITableViewController, APIRequestDelegate {
                 }
             }
         } else {
-            print("handlePlantData received no data")
+            print("handleData received no data")
         }
         dispatch_async(dispatch_get_main_queue(), { () -> Void in
             if self.parsedPlants.count < maxPlants {

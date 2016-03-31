@@ -16,7 +16,7 @@ class APIRequest : NSObject {
         self.urlString = urlString
     }
 
-    func sendGETRequest(delegate : APIRequestDelegate) {
+    func sendGETRequest(delegate : APIRequestDelegate?) {
         do {
             let opt = try HTTP.GET(self.urlString)
             opt.start { response in
@@ -24,22 +24,22 @@ class APIRequest : NSObject {
                     print("error: \(err.localizedDescription)")
                     return
                 }
-                delegate.handlePlantData(response.data)
+                delegate?.handleData(response.data)
             }
         } catch let error {
             print("got an error creating the request: \(error)")
         }
     }
  
-    func sendPOSTRequest(delegate : APIRequestDelegate, params : [String: AnyObject]) {
+    func sendPOSTRequest(delegate : APIRequestDelegate?, params : [String: AnyObject]) {
         do {
             let opt = try HTTP.POST(self.urlString, parameters: params, requestSerializer: JSONParameterSerializer())
             opt.start { response in
                 if let err = response.error {
                     print("error: \(err.localizedDescription)")
                     return
-                }                
-                delegate.handlePlantData(response.data)
+                }
+                delegate?.handleData(response.data)
             }
         } catch let error {
             print("got an error creating the request: \(error)")

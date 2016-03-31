@@ -26,7 +26,7 @@ class PlantDetailViewController: UIViewController, APIRequestDelegate {
         apiRequest.sendGETRequest(self)
     }
 
-    func handlePlantData(data: NSData!) {
+    func handleData(data: NSData!) {
         if let dataValue = data {
             let plantData = JSON(data: dataValue)
             self.plant = ParsedPlant()
@@ -60,7 +60,7 @@ class PlantDetailViewController: UIViewController, APIRequestDelegate {
             displayBasicInfo()
             displayFullInfo()
         } else {
-            print("handlePlantData received no data")
+            print("handleData received no data")
         }
     }
     

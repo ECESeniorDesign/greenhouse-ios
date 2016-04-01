@@ -13,6 +13,7 @@ let maxPlants = 2
 
 class RootViewController: UITableViewController, APIRequestDelegate {
 
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
 
     var parsedPlants : [ParsedPlant] = []
@@ -24,6 +25,7 @@ class RootViewController: UITableViewController, APIRequestDelegate {
 
     override func viewDidAppear(animated: Bool) {
         addButton.enabled = false
+        settingsButton.enabled = false
         reloadPlants()
     }
     
@@ -58,6 +60,7 @@ class RootViewController: UITableViewController, APIRequestDelegate {
             if self.parsedPlants.count < maxPlants {
                 self.addButton.enabled = true
             }
+            self.settingsButton.enabled = true
             self.tableView.reloadData()
         })
     }

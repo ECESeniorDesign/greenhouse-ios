@@ -86,16 +86,10 @@ class NewPlantViewController: UITableViewController, APIRequestDelegate {
     override internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let row = indexPath.row
         let plant = parsedPlants[row]
-        let params : [String: AnyObject] = ["plant_database_id": String(plant.plantDatabaseID!), "slot_id": String(self.slotId!)]
-        do {
-            let opt = try HTTP.POST("http://\(Config.greenhouse)/api/plants", parameters: params)
-            opt.start { response in
-                self.dismissViewControllerAnimated(true, completion: nil)
-            }
-        } catch let error {
-            print("got an error creating the request: \(error)")
-        }
-
+        let params : [String: AnyObject] = ["plant_database_id": plant.plantDatabaseID!, "slot_id": self.slotId!]
+        let apiRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/plants")
+        apiRequest.sendPOSTRequest(nil, params: params)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

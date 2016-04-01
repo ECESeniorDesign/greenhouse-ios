@@ -24,6 +24,8 @@
 		AB3C86171CA5A6F700190E42 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C86161CA5A6F700190E42 /* APIRequest.swift */; };
 		AB3C86191CA5A7FA00190E42 /* APIRequestDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C86181CA5A7FA00190E42 /* APIRequestDelegate.swift */; };
 		AB3C861B1CA5B73100190E42 /* NewPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C861A1CA5B73100190E42 /* NewPlantViewController.swift */; };
+		AB59249F1CAEF4EB005FE0C7 /* ControlDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59249E1CAEF4EB005FE0C7 /* ControlDetailViewController.swift */; };
+		AB5924A11CAEF69C005FE0C7 /* ParsedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5924A01CAEF69C005FE0C7 /* ParsedControl.swift */; };
 		ABACDC8A1CA6E77300FE0ED2 /* PlantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABACDC891CA6E77300FE0ED2 /* PlantDetailViewController.swift */; };
 		ABACDC8C1CA740E000FE0ED2 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABACDC8B1CA740E000FE0ED2 /* Media.xcassets */; };
 /* End PBXBuildFile section */
@@ -69,6 +71,8 @@
 		AB3C86161CA5A6F700190E42 /* APIRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		AB3C86181CA5A7FA00190E42 /* APIRequestDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestDelegate.swift; sourceTree = "<group>"; };
 		AB3C861A1CA5B73100190E42 /* NewPlantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlantViewController.swift; sourceTree = "<group>"; };
+		AB59249E1CAEF4EB005FE0C7 /* ControlDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlDetailViewController.swift; sourceTree = "<group>"; };
+		AB5924A01CAEF69C005FE0C7 /* ParsedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedControl.swift; sourceTree = "<group>"; };
 		ABACDC891CA6E77300FE0ED2 /* PlantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantDetailViewController.swift; sourceTree = "<group>"; };
 		ABACDC8B1CA740E000FE0ED2 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -129,6 +133,7 @@
 				AB20AAA41C9280310043C791 /* AppDelegate.swift */,
 				AB20AAA61C9280310043C791 /* RootViewController.swift */,
 				AB20AAA81C9280310043C791 /* Main.storyboard */,
+				AB59249E1CAEF4EB005FE0C7 /* ControlDetailViewController.swift */,
 				AB3C860D1CA589E600190E42 /* ParsedPlantCell.swift */,
 				AB20AAAB1C9280310043C791 /* Assets.xcassets */,
 				AB20AAAD1C9280310043C791 /* LaunchScreen.storyboard */,
@@ -141,6 +146,7 @@
 				ABACDC8B1CA740E000FE0ED2 /* Media.xcassets */,
 				AB0593F81CACBBEB005676A3 /* Config.swift */,
 				AB2A4F191CADAD8400AF831D /* SettingsTableViewController.swift */,
+				AB5924A01CAEF69C005FE0C7 /* ParsedControl.swift */,
 			);
 			path = Greenhouse;
 			sourceTree = "<group>";
@@ -323,8 +329,10 @@
 				AB299F971CAB0ED60046B62C /* PlantSettingViewController.swift in Sources */,
 				AB3C860C1CA5803800190E42 /* ParsedPlant.swift in Sources */,
 				AB20AAA71C9280310043C791 /* RootViewController.swift in Sources */,
+				AB5924A11CAEF69C005FE0C7 /* ParsedControl.swift in Sources */,
 				AB2A4F1A1CADAD8400AF831D /* SettingsTableViewController.swift in Sources */,
 				AB3C861B1CA5B73100190E42 /* NewPlantViewController.swift in Sources */,
+				AB59249F1CAEF4EB005FE0C7 /* ControlDetailViewController.swift in Sources */,
 				ABACDC8A1CA6E77300FE0ED2 /* PlantDetailViewController.swift in Sources */,
 				AB3C86191CA5A7FA00190E42 /* APIRequestDelegate.swift in Sources */,
 				AB3C86171CA5A6F700190E42 /* APIRequest.swift in Sources */,

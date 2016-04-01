@@ -17,28 +17,15 @@ class SettingsTableViewController: UITableViewController, APIRequestDelegate {
     @IBOutlet weak var pushSwitch: UISwitch!
     @IBAction func doneButtonPressed(sender: AnyObject) {
         if loaded {
-            var email : String
-            var push : String
-            var notify_plants : String
-            var notify_maintenance : String
-            if emailSwitch.on { email = "True" } else { email = "False" }
-            if pushSwitch.on { push = "True" } else { push = "False" }
-            if greenhouseMaintenanceSwitch.on { notify_maintenance = "True" } else { notify_maintenance = "False" }
-            if plantConditionsSwitch.on { notify_plants = "True" } else { notify_plants = "False" }
-            let params : [String:String] = ["email": email, "push": push, "notify_plants": notify_plants, "notify_maintenance":notify_maintenance]
-            do {
-                let opt = try HTTP.POST("http://\(Config.greenhouse)/api/notification_settings", parameters: params)
-                opt.start { response in
-                    self.dismissViewControllerAnimated(true, completion: nil)
-                }
-            } catch let error {
-                print("got an error creating the request: \(error)")
-            }
+            let params : [String:AnyObject] = ["email": emailSwitch.on, "push": pushSwitch.on, "notify_plants": plantConditionsSwitch.on, "notify_maintenance": greenhouseMaintenanceSwitch.on]
+            let apiRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/notification_settings")
+            apiRequest.sendPOSTRequest(nil, params: params)
         }
         self.performSegueWithIdentifier("doneSegue", sender: self)
     }
 
     var loaded = false
+    var controls : [String:ParsedControl] = [:]
     
     func handleData(data: NSData!) {
         if let dataValue = data {
@@ -49,6 +36,32 @@ class SettingsTableViewController: UITableViewController, APIRequestDelegate {
                 greenhouseMaintenanceSwitch.setOn(notificationData["notify_maintenance"].bool!, animated: true)
                 plantConditionsSwitch.setOn(notificationData["notify_plants"].bool!, animated: true)
                 self.loaded = true
+            } else if notificationData["fan"]["id"] != nil {
+                for (control, controlJSON) : (String, JSON) in notificationData {
+                    let dateFormatter = NSDateFormatter()
+                    dateFormatter.dateFormat = "HH:mm:ss"
+                    var startDate : NSDate
+                    var endDate : NSDate
+                    var restrictTime : Bool
+                    if controlJSON["active_start"].string != nil {
+                        startDate = dateFormatter.dateFromString(controlJSON["active_start"].string!)!
+                        endDate = dateFormatter.dateFromString(controlJSON["active_end"].string!)!
+                        restrictTime = true
+                    } else {
+                        startDate = dateFormatter.dateFromString("00:00:00")!
+                        endDate = dateFormatter.dateFromString("00:00:00")!
+                        restrictTime = false
+                    }
+                    var controlName : String
+                    switch control {
+                        case "pump": controlName = "Mist Pump"
+                        case "fan": controlName = "Fans"
+                        case "light": controlName = "Lights"
+                    default: controlName = "Control"
+                    }
+                    let parsedControl = ParsedControl(id: controlJSON["id"].int!, name: controlName, enabled: controlJSON["enabled"].bool!, active: controlJSON["active"].bool!, active_start: startDate, active_end: endDate, restrict_time: restrictTime)
+                    controls[control] = parsedControl
+                }
             }
         } else {
             print("handleData received no data")
@@ -59,6 +72,8 @@ class SettingsTableViewController: UITableViewController, APIRequestDelegate {
         super.viewDidLoad()
         let request = APIRequest(urlString: "http://\(Config.greenhouse)/api/notification_settings")
         request.sendGETRequest(self)
+        let controlRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/settings")
+        controlRequest.sendGETRequest(self)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -128,14 +143,30 @@ class SettingsTableViewController: UITableViewController, APIRequestDelegate {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if let destinationVC = segue.destinationViewController as? ControlDetailViewController {
+            switch segue.identifier! {
+            case "mistPumpDetailSegue":
+                destinationVC.control = controls["pump"]
+                destinationVC.whichControl = "pump"
+            case "lightsDetailSegue":
+                destinationVC.control = controls["light"]
+                destinationVC.whichControl = "light"
+            case "fansDetailSegue":
+                destinationVC.control = controls["fan"]
+                destinationVC.whichControl = "fan"
+            default:
+                // Shouldn't happen
+                print("Shouldn't see this")
+                destinationVC.control = nil
+                destinationVC.whichControl = nil
+            }
+        }
     }
-    */
 
 }

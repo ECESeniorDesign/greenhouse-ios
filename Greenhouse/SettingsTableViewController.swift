@@ -11,15 +11,21 @@ import SwiftyJSON
 import SwiftHTTP
 
 class SettingsTableViewController: UITableViewController, APIRequestDelegate {
+    @IBOutlet weak var greenhouseMaintenanceSwitch: UISwitch!
+    @IBOutlet weak var plantConditionsSwitch: UISwitch!
     @IBOutlet weak var emailSwitch: UISwitch!
     @IBOutlet weak var pushSwitch: UISwitch!
     @IBAction func doneButtonPressed(sender: AnyObject) {
         if loaded {
             var email : String
             var push : String
+            var notify_plants : String
+            var notify_maintenance : String
             if emailSwitch.on { email = "True" } else { email = "False" }
             if pushSwitch.on { push = "True" } else { push = "False" }
-            let params : [String:String] = ["email": email, "push": push]
+            if greenhouseMaintenanceSwitch.on { notify_maintenance = "True" } else { notify_maintenance = "False" }
+            if plantConditionsSwitch.on { notify_plants = "True" } else { notify_plants = "False" }
+            let params : [String:String] = ["email": email, "push": push, "notify_plants": notify_plants, "notify_maintenance":notify_maintenance]
             do {
                 let opt = try HTTP.POST("http://\(Config.greenhouse)/api/notification_settings", parameters: params)
                 opt.start { response in
@@ -40,6 +46,8 @@ class SettingsTableViewController: UITableViewController, APIRequestDelegate {
             if notificationData["email"].bool != nil {
                 emailSwitch.setOn(notificationData["email"].bool!, animated: true)
                 pushSwitch.setOn(notificationData["push"].bool!, animated: true)
+                greenhouseMaintenanceSwitch.setOn(notificationData["notify_maintenance"].bool!, animated: true)
+                plantConditionsSwitch.setOn(notificationData["notify_plants"].bool!, animated: true)
                 self.loaded = true
             }
         } else {

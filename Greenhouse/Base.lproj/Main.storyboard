@@ -132,10 +132,10 @@
         <scene sceneID="ZmG-hX-i9z">
             <objects>
                 <tableViewController id="q0Q-Xf-2Qt" customClass="SettingsTableViewController" customModule="Greenhouse" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="oNF-Zu-gxT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="oNF-Zu-gxT">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Notifications" id="KZo-cQ-OwY">
                                 <cells>
@@ -798,7 +798,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3dP-0A-5iC">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dP-0A-5iC">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <barButtonItem title="Delete" id="vIZ-Kf-CSa">
@@ -808,31 +808,73 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="d3J-kO-kdd">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="notificationThresholdCell" textLabel="qEn-Kf-oVO" style="IBUITableViewCellStyleDefault" id="YRe-gr-oyg">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YRe-gr-oyg" id="YGc-Ab-MBO">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qEn-Kf-oVO">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="wQ4-GR-KBn" id="5Iv-Y3-dd9"/>
+                                    <outlet property="delegate" destination="wQ4-GR-KBn" id="MlB-Ro-n1F"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="3dP-0A-5iC" secondAttribute="trailing" id="6Lg-41-0IS"/>
+                            <constraint firstItem="d3J-kO-kdd" firstAttribute="top" secondItem="EnO-qi-ied" secondAttribute="bottom" id="JBl-Nl-uk7"/>
                             <constraint firstItem="c3r-8p-xqV" firstAttribute="top" secondItem="3dP-0A-5iC" secondAttribute="bottom" id="ZgW-O1-jQ8"/>
                             <constraint firstItem="3dP-0A-5iC" firstAttribute="leading" secondItem="3Ap-H1-C9s" secondAttribute="leading" id="dzf-cd-pI2"/>
+                            <constraint firstItem="d3J-kO-kdd" firstAttribute="leading" secondItem="3Ap-H1-C9s" secondAttribute="leading" id="fON-4X-Nt4"/>
+                            <constraint firstAttribute="trailing" secondItem="d3J-kO-kdd" secondAttribute="trailing" id="mpn-YW-QgT"/>
+                            <constraint firstItem="3dP-0A-5iC" firstAttribute="top" secondItem="d3J-kO-kdd" secondAttribute="bottom" id="pyq-04-8IQ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="3dP-0A-5iC"/>
+                                <exclude reference="d3J-kO-kdd"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="ZgW-O1-jQ8"/>
+                                <exclude reference="JBl-Nl-uk7"/>
+                                <exclude reference="fON-4X-Nt4"/>
+                                <exclude reference="mpn-YW-QgT"/>
                                 <exclude reference="6Lg-41-0IS"/>
                                 <exclude reference="dzf-cd-pI2"/>
+                                <exclude reference="pyq-04-8IQ"/>
+                                <exclude reference="ZgW-O1-jQ8"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="3dP-0A-5iC"/>
+                                <include reference="d3J-kO-kdd"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="ZgW-O1-jQ8"/>
+                                <include reference="JBl-Nl-uk7"/>
+                                <include reference="fON-4X-Nt4"/>
+                                <include reference="mpn-YW-QgT"/>
                                 <include reference="6Lg-41-0IS"/>
                                 <include reference="dzf-cd-pI2"/>
+                                <include reference="pyq-04-8IQ"/>
+                                <include reference="ZgW-O1-jQ8"/>
                             </mask>
                         </variation>
                     </view>
@@ -849,6 +891,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="thresholdsTable" destination="d3J-kO-kdd" id="tQ9-Ku-TLW"/>
                         <segue destination="xbz-d1-pT6" kind="unwind" identifier="deletedPlantSegue" unwindAction="unwindToRootController:" id="q86-Bt-X5c"/>
                     </connections>
                 </viewController>

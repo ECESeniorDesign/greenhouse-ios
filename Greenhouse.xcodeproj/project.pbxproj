@@ -28,6 +28,7 @@
 		AB5924A11CAEF69C005FE0C7 /* ParsedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5924A01CAEF69C005FE0C7 /* ParsedControl.swift */; };
 		ABACDC8A1CA6E77300FE0ED2 /* PlantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABACDC891CA6E77300FE0ED2 /* PlantDetailViewController.swift */; };
 		ABACDC8C1CA740E000FE0ED2 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABACDC8B1CA740E000FE0ED2 /* Media.xcassets */; };
+		ABD7F1FF1CB2EDC600F6DDE3 /* NotificationThreshold.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7F1FE1CB2EDC600F6DDE3 /* NotificationThreshold.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		AB5924A01CAEF69C005FE0C7 /* ParsedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedControl.swift; sourceTree = "<group>"; };
 		ABACDC891CA6E77300FE0ED2 /* PlantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantDetailViewController.swift; sourceTree = "<group>"; };
 		ABACDC8B1CA740E000FE0ED2 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		ABD7F1FE1CB2EDC600F6DDE3 /* NotificationThreshold.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationThreshold.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				AB20AAA41C9280310043C791 /* AppDelegate.swift */,
 				AB20AAA61C9280310043C791 /* RootViewController.swift */,
 				AB20AAA81C9280310043C791 /* Main.storyboard */,
+				ABD7F1FE1CB2EDC600F6DDE3 /* NotificationThreshold.swift */,
 				AB59249E1CAEF4EB005FE0C7 /* ControlDetailViewController.swift */,
 				AB3C860D1CA589E600190E42 /* ParsedPlantCell.swift */,
 				AB20AAAB1C9280310043C791 /* Assets.xcassets */,
@@ -330,6 +333,7 @@
 				AB3C860C1CA5803800190E42 /* ParsedPlant.swift in Sources */,
 				AB20AAA71C9280310043C791 /* RootViewController.swift in Sources */,
 				AB5924A11CAEF69C005FE0C7 /* ParsedControl.swift in Sources */,
+				ABD7F1FF1CB2EDC600F6DDE3 /* NotificationThreshold.swift in Sources */,
 				AB2A4F1A1CADAD8400AF831D /* SettingsTableViewController.swift in Sources */,
 				AB3C861B1CA5B73100190E42 /* NewPlantViewController.swift in Sources */,
 				AB59249F1CAEF4EB005FE0C7 /* ControlDetailViewController.swift in Sources */,

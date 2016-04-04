@@ -15,6 +15,7 @@ class PlantSettingViewController: UIViewController {
     @IBAction func deleteButtonPressed(sender: AnyObject) {
         let apiRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/plants/\(plant!.slotID!)")
         apiRequest.sendDeleteRequest()
+        performSegueWithIdentifier("deletedPlantSegue", sender: self)
     }
     @IBAction func doneButtonPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)

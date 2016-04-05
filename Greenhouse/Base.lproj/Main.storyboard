@@ -1103,14 +1103,14 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="lk6-00-suR">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="oiK-sp-VLG">
-                            <connections>
-                                <action selector="cancelButtonPressed:" destination="jeW-Rs-lit" id="F2d-XB-mgn"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="4Vg-rq-F7o">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="4Vg-rq-F7o">
                             <connections>
                                 <action selector="doneButtonPressed:" destination="jeW-Rs-lit" id="gkn-mc-Nj8"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="sow-Vf-eFL">
+                            <connections>
+                                <action selector="deleteButtonPressed:" destination="jeW-Rs-lit" id="MTn-lj-gql"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

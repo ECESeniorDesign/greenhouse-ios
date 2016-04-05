@@ -9,6 +9,11 @@
 import UIKit
 
 class NotificationSettingViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+    @IBAction func deleteButtonPressed(sender: AnyObject) {
+        let apiRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/plants/\(plantID!)/settings/\(threshold!.id)")
+        apiRequest.sendDeleteRequest()
+        self.performSegueWithIdentifier("exitNTSegue", sender: self)
+    }
     @IBAction func doneButtonPressed(sender: AnyObject) {
         let sensorName = sensors[sensorNamePicker.selectedRowInComponent(0)].lowercaseString
         let params : [String : AnyObject] = ["sensor_name": sensorName, "deviation_time": timeStepper.value, "deviation_percent": percentStepper.value]
@@ -22,9 +27,6 @@ class NotificationSettingViewController: UITableViewController, UIPickerViewData
         let apiRequest = APIRequest(urlString: urlString)
         apiRequest.sendPOSTRequest(nil, params: params)
 
-        self.performSegueWithIdentifier("exitNTSegue", sender: self)
-    }
-    @IBAction func cancelButtonPressed(sender: AnyObject) {
         self.performSegueWithIdentifier("exitNTSegue", sender: self)
     }
     @IBAction func timeStepperValueChanged(sender: UIStepper) {

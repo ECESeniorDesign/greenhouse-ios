@@ -96,7 +96,7 @@ class RootViewController: UITableViewController, APIRequestDelegate {
                 parsedPlant.slotID!
             })
             var slotId : Int? = nil
-            for i in 1...maxPlants {
+            for i in (1...maxPlants).reverse() {
                 if !slotIds.contains(i) {
                     slotId = i
                 }

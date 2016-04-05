@@ -13,9 +13,9 @@ class NotificationThreshold : NSObject {
     var name : String
     var id : Int
     var deviationTime : Float
-    var deviationPercent : Int
+    var deviationPercent : Float
     
-    init(name: String, id: Int, deviationTime: Float, deviationPercent: Int) {
+    init(name: String, id: Int, deviationTime: Float, deviationPercent: Float) {
         self.name = name
         self.id = id
         self.deviationTime = deviationTime

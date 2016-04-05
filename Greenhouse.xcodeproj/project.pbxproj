@@ -15,7 +15,6 @@
 		AB20AAAF1C9280310043C791 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB20AAAD1C9280310043C791 /* LaunchScreen.storyboard */; };
 		AB20AABA1C9280320043C791 /* GreenhouseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB20AAB91C9280320043C791 /* GreenhouseTests.swift */; };
 		AB20AAC51C9280320043C791 /* GreenhouseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB20AAC41C9280320043C791 /* GreenhouseUITests.swift */; };
-		AB299F971CAB0ED60046B62C /* PlantSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB299F961CAB0ED60046B62C /* PlantSettingViewController.swift */; };
 		AB2A4F1A1CADAD8400AF831D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2A4F191CADAD8400AF831D /* SettingsTableViewController.swift */; };
 		AB3C860C1CA5803800190E42 /* ParsedPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C860B1CA5803800190E42 /* ParsedPlant.swift */; };
 		AB3C860E1CA589E600190E42 /* ParsedPlantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C860D1CA589E600190E42 /* ParsedPlantCell.swift */; };
@@ -26,8 +25,10 @@
 		AB3C861B1CA5B73100190E42 /* NewPlantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C861A1CA5B73100190E42 /* NewPlantViewController.swift */; };
 		AB59249F1CAEF4EB005FE0C7 /* ControlDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB59249E1CAEF4EB005FE0C7 /* ControlDetailViewController.swift */; };
 		AB5924A11CAEF69C005FE0C7 /* ParsedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5924A01CAEF69C005FE0C7 /* ParsedControl.swift */; };
+		AB9D50681CB32E61008716BE /* NotificationSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9D50671CB32E61008716BE /* NotificationSettingViewController.swift */; };
 		ABACDC8A1CA6E77300FE0ED2 /* PlantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABACDC891CA6E77300FE0ED2 /* PlantDetailViewController.swift */; };
 		ABACDC8C1CA740E000FE0ED2 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABACDC8B1CA740E000FE0ED2 /* Media.xcassets */; };
+		ABD1FC4B1CB34BC000B4D807 /* PlantSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD1FC4A1CB34BC000B4D807 /* PlantSettingViewController.swift */; };
 		ABD7F1FF1CB2EDC600F6DDE3 /* NotificationThreshold.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7F1FE1CB2EDC600F6DDE3 /* NotificationThreshold.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,7 +64,6 @@
 		AB20AAC01C9280320043C791 /* GreenhouseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreenhouseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB20AAC41C9280320043C791 /* GreenhouseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenhouseUITests.swift; sourceTree = "<group>"; };
 		AB20AAC61C9280320043C791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AB299F961CAB0ED60046B62C /* PlantSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantSettingViewController.swift; sourceTree = "<group>"; };
 		AB2A4F191CADAD8400AF831D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		AB3C860B1CA5803800190E42 /* ParsedPlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedPlant.swift; sourceTree = "<group>"; };
 		AB3C860D1CA589E600190E42 /* ParsedPlantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedPlantCell.swift; sourceTree = "<group>"; };
@@ -74,8 +74,10 @@
 		AB3C861A1CA5B73100190E42 /* NewPlantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlantViewController.swift; sourceTree = "<group>"; };
 		AB59249E1CAEF4EB005FE0C7 /* ControlDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlDetailViewController.swift; sourceTree = "<group>"; };
 		AB5924A01CAEF69C005FE0C7 /* ParsedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedControl.swift; sourceTree = "<group>"; };
+		AB9D50671CB32E61008716BE /* NotificationSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettingViewController.swift; sourceTree = "<group>"; };
 		ABACDC891CA6E77300FE0ED2 /* PlantDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantDetailViewController.swift; sourceTree = "<group>"; };
 		ABACDC8B1CA740E000FE0ED2 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		ABD1FC4A1CB34BC000B4D807 /* PlantSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantSettingViewController.swift; sourceTree = "<group>"; };
 		ABD7F1FE1CB2EDC600F6DDE3 /* NotificationThreshold.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationThreshold.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,7 +133,8 @@
 		AB20AAA31C9280310043C791 /* Greenhouse */ = {
 			isa = PBXGroup;
 			children = (
-				AB299F961CAB0ED60046B62C /* PlantSettingViewController.swift */,
+				ABD1FC4A1CB34BC000B4D807 /* PlantSettingViewController.swift */,
+				AB9D50671CB32E61008716BE /* NotificationSettingViewController.swift */,
 				AB20AAA41C9280310043C791 /* AppDelegate.swift */,
 				AB20AAA61C9280310043C791 /* RootViewController.swift */,
 				AB20AAA81C9280310043C791 /* Main.storyboard */,
@@ -329,9 +332,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB299F971CAB0ED60046B62C /* PlantSettingViewController.swift in Sources */,
 				AB3C860C1CA5803800190E42 /* ParsedPlant.swift in Sources */,
 				AB20AAA71C9280310043C791 /* RootViewController.swift in Sources */,
+				AB9D50681CB32E61008716BE /* NotificationSettingViewController.swift in Sources */,
 				AB5924A11CAEF69C005FE0C7 /* ParsedControl.swift in Sources */,
 				ABD7F1FF1CB2EDC600F6DDE3 /* NotificationThreshold.swift in Sources */,
 				AB2A4F1A1CADAD8400AF831D /* SettingsTableViewController.swift in Sources */,
@@ -341,6 +344,7 @@
 				AB3C86191CA5A7FA00190E42 /* APIRequestDelegate.swift in Sources */,
 				AB3C86171CA5A6F700190E42 /* APIRequest.swift in Sources */,
 				AB0593F91CACBBEB005676A3 /* Config.swift in Sources */,
+				ABD1FC4B1CB34BC000B4D807 /* PlantSettingViewController.swift in Sources */,
 				AB3C860E1CA589E600190E42 /* ParsedPlantCell.swift in Sources */,
 				AB20AAA51C9280310043C791 /* AppDelegate.swift in Sources */,
 			);

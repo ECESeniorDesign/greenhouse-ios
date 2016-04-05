@@ -15,9 +15,6 @@ class PlantSettingViewController: UIViewController, APIRequestDelegate {
     var notificationThresholds : [String: [NotificationThreshold]] = [:]
     var thresholdNames : [String] = []
     
-    @IBAction func cancelButtonPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
     @IBAction func deleteButtonPressed(sender: AnyObject) {
         let apiRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/plants/\(plant!.slotID!)")
         apiRequest.sendDeleteRequest()
@@ -29,19 +26,28 @@ class PlantSettingViewController: UIViewController, APIRequestDelegate {
     }
     var plant : ParsedPlant?
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func loadSettings() {
         let apiRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/plants/\(plant!.slotID!)/settings")
         apiRequest.sendGETRequest(self)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(animated: Bool) {
+        loadSettings()
+    }
+    
     func handleData(data: NSData!) {
         if data != nil {
+            thresholdNames = []
+            notificationThresholds = [:]
             let json = JSON(data: data)
             let settings = json["settings"].array!
             for setting in settings {
-                let notificationThreshold = NotificationThreshold(name: setting["sensor_name"].string!, id: setting["id"].int!, deviationTime: setting["deviation_time"].float!, deviationPercent: setting["deviation_percent"].int!)
+                let notificationThreshold = NotificationThreshold(name: setting["sensor_name"].string!, id: setting["id"].int!, deviationTime: setting["deviation_time"].float!, deviationPercent: setting["deviation_percent"].float!)
                 if notificationThresholds[notificationThreshold.name] != nil {
                     notificationThresholds[notificationThreshold.name]!.append(notificationThreshold)
                 } else {
@@ -80,20 +86,29 @@ class PlantSettingViewController: UIViewController, APIRequestDelegate {
         return cell
     }
     
-    internal func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let row = indexPath.row
-        print("Row selected: \(row)")
+    @IBAction func unwindToPlantSettingController (segue: UIStoryboardSegue?) {
     }
-
     
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "newNTSegue" {
+            let destinationVC = segue.destinationViewController as! NotificationSettingViewController
+            destinationVC.threshold = NotificationThreshold(name: "water", id: 0, deviationTime: 0, deviationPercent: 0)
+            destinationVC.action = "new"
+            destinationVC.plantID = plant!.slotID
+        } else if segue.identifier == "editNTSegue" {
+            let destinationVC = segue.destinationViewController as! NotificationSettingViewController
+            let indexPath = self.thresholdsTable!.indexPathForSelectedRow!
+            let section = notificationThresholds[thresholdNames[indexPath.section]]!
+            let threshold = section[indexPath.row]
+            destinationVC.threshold = threshold
+            destinationVC.action = "edit"
+            destinationVC.plantID = plant!.slotID
+        }
     }
-    */
 
 }

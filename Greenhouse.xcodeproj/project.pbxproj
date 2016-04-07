@@ -15,6 +15,9 @@
 		AB20AAAF1C9280310043C791 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB20AAAD1C9280310043C791 /* LaunchScreen.storyboard */; };
 		AB20AABA1C9280320043C791 /* GreenhouseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB20AAB91C9280320043C791 /* GreenhouseTests.swift */; };
 		AB20AAC51C9280320043C791 /* GreenhouseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB20AAC41C9280320043C791 /* GreenhouseUITests.swift */; };
+		AB211F681CB5EFD100A21E44 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB211F611CB5EFA300A21E44 /* Charts.framework */; };
+		AB211F691CB5EFD100A21E44 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AB211F611CB5EFA300A21E44 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AB211F701CB5F12600A21E44 /* PlantChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB211F6F1CB5F12600A21E44 /* PlantChartViewController.swift */; };
 		AB2A4F1A1CADAD8400AF831D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB2A4F191CADAD8400AF831D /* SettingsTableViewController.swift */; };
 		AB3C860C1CA5803800190E42 /* ParsedPlant.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C860B1CA5803800190E42 /* ParsedPlant.swift */; };
 		AB3C860E1CA589E600190E42 /* ParsedPlantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3C860D1CA589E600190E42 /* ParsedPlantCell.swift */; };
@@ -47,7 +50,56 @@
 			remoteGlobalIDString = AB20AAA01C9280310043C791;
 			remoteInfo = Greenhouse;
 		};
+		AB211F601CB5EFA300A21E44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB211F591CB5EFA300A21E44 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5BA8EC401A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
+		AB211F621CB5EFA300A21E44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB211F591CB5EFA300A21E44 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A52C5C371BAC5CA400594CDD;
+			remoteInfo = "Charts-TV";
+		};
+		AB211F641CB5EFA300A21E44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB211F591CB5EFA300A21E44 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 65B3F5BF1C7370BE000983D0;
+			remoteInfo = "Charts-OSX";
+		};
+		AB211F661CB5EFA300A21E44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB211F591CB5EFA300A21E44 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06AEE7A21BDC3F8B009875AE;
+			remoteInfo = ChartsTests;
+		};
+		AB211F6A1CB5EFD100A21E44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB211F591CB5EFA300A21E44 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5BA8EC3F1A9D14DC00CE82E1;
+			remoteInfo = "Charts-iOS";
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AB211F6C1CB5EFD200A21E44 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AB211F691CB5EFD100A21E44 /* Charts.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AB0593F81CACBBEB005676A3 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -64,6 +116,8 @@
 		AB20AAC01C9280320043C791 /* GreenhouseUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GreenhouseUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB20AAC41C9280320043C791 /* GreenhouseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenhouseUITests.swift; sourceTree = "<group>"; };
 		AB20AAC61C9280320043C791 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB211F591CB5EFA300A21E44 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../Charts/Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		AB211F6F1CB5F12600A21E44 /* PlantChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantChartViewController.swift; sourceTree = "<group>"; };
 		AB2A4F191CADAD8400AF831D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		AB3C860B1CA5803800190E42 /* ParsedPlant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedPlant.swift; sourceTree = "<group>"; };
 		AB3C860D1CA589E600190E42 /* ParsedPlantCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedPlantCell.swift; sourceTree = "<group>"; };
@@ -86,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB211F681CB5EFD100A21E44 /* Charts.framework in Frameworks */,
 				AB3C86151CA59F1B00190E42 /* SwiftyJSON.framework in Frameworks */,
 				AB3C86131CA59A0F00190E42 /* SwiftHTTP.framework in Frameworks */,
 			);
@@ -111,6 +166,7 @@
 		AB20AA981C9280310043C791 = {
 			isa = PBXGroup;
 			children = (
+				AB211F591CB5EFA300A21E44 /* Charts.xcodeproj */,
 				AB3C86141CA59F1B00190E42 /* SwiftyJSON.framework */,
 				AB3C86121CA59A0F00190E42 /* SwiftHTTP.framework */,
 				AB20AAA31C9280310043C791 /* Greenhouse */,
@@ -133,6 +189,7 @@
 		AB20AAA31C9280310043C791 /* Greenhouse */ = {
 			isa = PBXGroup;
 			children = (
+				AB211F6F1CB5F12600A21E44 /* PlantChartViewController.swift */,
 				ABD1FC4A1CB34BC000B4D807 /* PlantSettingViewController.swift */,
 				AB9D50671CB32E61008716BE /* NotificationSettingViewController.swift */,
 				AB20AAA41C9280310043C791 /* AppDelegate.swift */,
@@ -175,6 +232,17 @@
 			path = GreenhouseUITests;
 			sourceTree = "<group>";
 		};
+		AB211F5A1CB5EFA300A21E44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB211F611CB5EFA300A21E44 /* Charts.framework */,
+				AB211F631CB5EFA300A21E44 /* Charts.framework */,
+				AB211F651CB5EFA300A21E44 /* Charts.framework */,
+				AB211F671CB5EFA300A21E44 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -186,10 +254,12 @@
 				AB20AA9D1C9280310043C791 /* Sources */,
 				AB20AA9E1C9280310043C791 /* Frameworks */,
 				AB20AA9F1C9280310043C791 /* Resources */,
+				AB211F6C1CB5EFD200A21E44 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AB211F6B1CB5EFD100A21E44 /* PBXTargetDependency */,
 			);
 			name = Greenhouse;
 			productName = Greenhouse;
@@ -272,6 +342,12 @@
 			mainGroup = AB20AA981C9280310043C791;
 			productRefGroup = AB20AAA21C9280310043C791 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AB211F5A1CB5EFA300A21E44 /* Products */;
+					ProjectRef = AB211F591CB5EFA300A21E44 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AB20AAA01C9280310043C791 /* Greenhouse */,
@@ -280,6 +356,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AB211F611CB5EFA300A21E44 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = AB211F601CB5EFA300A21E44 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AB211F631CB5EFA300A21E44 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = AB211F621CB5EFA300A21E44 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AB211F651CB5EFA300A21E44 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = AB211F641CB5EFA300A21E44 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AB211F671CB5EFA300A21E44 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = AB211F661CB5EFA300A21E44 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AB20AA9F1C9280310043C791 /* Resources */ = {
@@ -341,6 +448,7 @@
 				AB3C861B1CA5B73100190E42 /* NewPlantViewController.swift in Sources */,
 				AB59249F1CAEF4EB005FE0C7 /* ControlDetailViewController.swift in Sources */,
 				ABACDC8A1CA6E77300FE0ED2 /* PlantDetailViewController.swift in Sources */,
+				AB211F701CB5F12600A21E44 /* PlantChartViewController.swift in Sources */,
 				AB3C86191CA5A7FA00190E42 /* APIRequestDelegate.swift in Sources */,
 				AB3C86171CA5A6F700190E42 /* APIRequest.swift in Sources */,
 				AB0593F91CACBBEB005676A3 /* Config.swift in Sources */,
@@ -378,6 +486,11 @@
 			isa = PBXTargetDependency;
 			target = AB20AAA01C9280310043C791 /* Greenhouse */;
 			targetProxy = AB20AAC11C9280320043C791 /* PBXContainerItemProxy */;
+		};
+		AB211F6B1CB5EFD100A21E44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Charts-iOS";
+			targetProxy = AB211F6A1CB5EFD100A21E44 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -491,6 +604,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -509,6 +623,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

@@ -34,6 +34,7 @@
 		ABD1FC4B1CB34BC000B4D807 /* PlantSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD1FC4A1CB34BC000B4D807 /* PlantSettingViewController.swift */; };
 		ABD7F1FF1CB2EDC600F6DDE3 /* NotificationThreshold.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7F1FE1CB2EDC600F6DDE3 /* NotificationThreshold.swift */; };
 		ABE198611CB803950041E6C4 /* SocketIOClientSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE198601CB803950041E6C4 /* SocketIOClientSwift.framework */; };
+		ABFA56C91CB812DB00C20DB5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = ABFA56C81CB812DB00C20DB5 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +136,7 @@
 		ABD1FC4A1CB34BC000B4D807 /* PlantSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantSettingViewController.swift; sourceTree = "<group>"; };
 		ABD7F1FE1CB2EDC600F6DDE3 /* NotificationThreshold.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationThreshold.swift; sourceTree = "<group>"; };
 		ABE198601CB803950041E6C4 /* SocketIOClientSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIOClientSwift.framework; path = Carthage/Build/iOS/SocketIOClientSwift.framework; sourceTree = "<group>"; };
+		ABFA56C81CB812DB00C20DB5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Greenhouse/Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 		AB20AA981C9280310043C791 = {
 			isa = PBXGroup;
 			children = (
+				ABFA56C81CB812DB00C20DB5 /* Settings.bundle */,
 				ABE198601CB803950041E6C4 /* SocketIOClientSwift.framework */,
 				AB211F591CB5EFA300A21E44 /* Charts.xcodeproj */,
 				AB3C86141CA59F1B00190E42 /* SwiftyJSON.framework */,
@@ -399,6 +402,7 @@
 			files = (
 				AB20AAAF1C9280310043C791 /* LaunchScreen.storyboard in Resources */,
 				AB20AAAC1C9280310043C791 /* Assets.xcassets in Resources */,
+				ABFA56C91CB812DB00C20DB5 /* Settings.bundle in Resources */,
 				ABACDC8C1CA740E000FE0ED2 /* Media.xcassets in Resources */,
 				AB20AAAA1C9280310043C791 /* Main.storyboard in Resources */,
 			);

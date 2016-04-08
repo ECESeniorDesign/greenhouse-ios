@@ -8,7 +8,10 @@
 
 import Foundation
 
-struct Config {
-    static let greenhouse = "10.32.0.101:5000"
+class Config : NSObject {
+    static let defaultGreenhouse  = "10.32.0.101"
+    static var greenhouse : String! {
+        return "\(NSUserDefaults.standardUserDefaults().stringForKey("greenhouseIPAddress")!):5000"
+    }
     static let plant_database = "10.32.0.101:4000"
 }

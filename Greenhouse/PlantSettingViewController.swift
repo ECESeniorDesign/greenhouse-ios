@@ -15,11 +15,6 @@ class PlantSettingViewController: UIViewController, APIRequestDelegate {
     var notificationThresholds : [String: [NotificationThreshold]] = [:]
     var thresholdNames : [String] = []
     
-    @IBAction func deleteButtonPressed(sender: AnyObject) {
-        let apiRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/plants/\(plant!.slotID!)")
-        apiRequest.sendDeleteRequest()
-        performSegueWithIdentifier("deletedPlantSegue", sender: self)
-    }
     @IBAction func doneButtonPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
         // Update settings

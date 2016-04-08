@@ -14,7 +14,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="183" sectionHeaderHeight="18" sectionFooterHeight="18" id="Msw-lW-cJB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="plantCell" rowHeight="183" id="7ob-sU-ota" customClass="ParsedPlantCell" customModule="Greenhouse" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="113.5" width="600" height="183"/>
@@ -669,7 +669,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="183" sectionHeaderHeight="18" sectionFooterHeight="18" id="d2M-S9-BZn">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="plantCell" rowHeight="183" id="0JE-kg-xBd" customClass="ParsedPlantCell" customModule="Greenhouse" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="113.5" width="600" height="183"/>
@@ -785,7 +785,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time Within Tolerance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZj-Ww-86G">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q8d-DR-tBf" customClass="LineChartView" customModule="Charts">
@@ -795,7 +795,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RL8-r0-MbY">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nz2-to-Cmn" customClass="RadarChartView" customModule="Charts">
@@ -953,16 +953,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dP-0A-5iC">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem systemItem="trash" id="vIZ-Kf-CSa">
-                                        <connections>
-                                            <action selector="deleteButtonPressed:" destination="wQ4-GR-KBn" id="Ofg-2G-9QJ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="d3J-kO-kdd">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -999,42 +989,31 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="3dP-0A-5iC" secondAttribute="trailing" id="6Lg-41-0IS"/>
                             <constraint firstItem="d3J-kO-kdd" firstAttribute="top" secondItem="EnO-qi-ied" secondAttribute="bottom" id="JBl-Nl-uk7"/>
-                            <constraint firstItem="c3r-8p-xqV" firstAttribute="top" secondItem="3dP-0A-5iC" secondAttribute="bottom" id="ZgW-O1-jQ8"/>
-                            <constraint firstItem="3dP-0A-5iC" firstAttribute="leading" secondItem="3Ap-H1-C9s" secondAttribute="leading" id="dzf-cd-pI2"/>
                             <constraint firstItem="d3J-kO-kdd" firstAttribute="leading" secondItem="3Ap-H1-C9s" secondAttribute="leading" id="fON-4X-Nt4"/>
+                            <constraint firstItem="c3r-8p-xqV" firstAttribute="top" secondItem="d3J-kO-kdd" secondAttribute="bottom" id="kwB-Gj-XVG"/>
                             <constraint firstAttribute="trailing" secondItem="d3J-kO-kdd" secondAttribute="trailing" id="mpn-YW-QgT"/>
-                            <constraint firstItem="3dP-0A-5iC" firstAttribute="top" secondItem="d3J-kO-kdd" secondAttribute="bottom" id="pyq-04-8IQ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="3dP-0A-5iC"/>
                                 <exclude reference="d3J-kO-kdd"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="ZgW-O1-jQ8"/>
-                                <exclude reference="6Lg-41-0IS"/>
-                                <exclude reference="dzf-cd-pI2"/>
-                                <exclude reference="pyq-04-8IQ"/>
                                 <exclude reference="JBl-Nl-uk7"/>
                                 <exclude reference="fON-4X-Nt4"/>
                                 <exclude reference="mpn-YW-QgT"/>
+                                <exclude reference="kwB-Gj-XVG"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
-                                <include reference="3dP-0A-5iC"/>
                                 <include reference="d3J-kO-kdd"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="ZgW-O1-jQ8"/>
-                                <include reference="6Lg-41-0IS"/>
-                                <include reference="dzf-cd-pI2"/>
-                                <include reference="pyq-04-8IQ"/>
                                 <include reference="JBl-Nl-uk7"/>
                                 <include reference="fON-4X-Nt4"/>
                                 <include reference="mpn-YW-QgT"/>
+                                <include reference="kwB-Gj-XVG"/>
                             </mask>
                         </variation>
                     </view>
@@ -1052,11 +1031,9 @@
                     </navigationItem>
                     <connections>
                         <outlet property="thresholdsTable" destination="d3J-kO-kdd" id="tQ9-Ku-TLW"/>
-                        <segue destination="xbz-d1-pT6" kind="unwind" identifier="deletedPlantSegue" unwindAction="unwindToRootController:" id="q86-Bt-X5c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dX6-Rs-Xuf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="xbz-d1-pT6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4360.5" y="-201"/>
         </scene>
@@ -1067,7 +1044,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="EAy-tg-MHZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Sensor" id="WCg-vZ-1ej">
                                 <cells>
@@ -1387,6 +1364,12 @@
                                             <segue destination="UOj-O5-4i6" kind="show" identifier="plantChartSegue" id="9mC-4M-ToG"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="WoB-Pk-dlg"/>
+                                    <barButtonItem systemItem="trash" id="uzz-jb-3R7">
+                                        <connections>
+                                            <action selector="deleteButtonPressed:" destination="A5w-d5-en6" id="XCd-Kd-MEn"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -1537,9 +1520,11 @@
                         <outlet property="matureDate" destination="qqL-qm-eKP" id="FLD-hm-WXf"/>
                         <outlet property="plantImage" destination="vsg-Ot-iIY" id="W4k-aW-2S4"/>
                         <outlet property="plantName" destination="4K3-RJ-Oex" id="nss-cp-1D8"/>
+                        <segue destination="lnS-jv-0Mh" kind="unwind" identifier="deletedPlantSegue" unwindAction="unwindToRootController:" id="V9e-Fq-ws2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kdm-F4-k2X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lnS-jv-0Mh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2658" y="-201"/>
         </scene>

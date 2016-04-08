@@ -33,6 +33,7 @@
 		ABACDC8C1CA740E000FE0ED2 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABACDC8B1CA740E000FE0ED2 /* Media.xcassets */; };
 		ABD1FC4B1CB34BC000B4D807 /* PlantSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD1FC4A1CB34BC000B4D807 /* PlantSettingViewController.swift */; };
 		ABD7F1FF1CB2EDC600F6DDE3 /* NotificationThreshold.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD7F1FE1CB2EDC600F6DDE3 /* NotificationThreshold.swift */; };
+		ABE198611CB803950041E6C4 /* SocketIOClientSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABE198601CB803950041E6C4 /* SocketIOClientSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		ABACDC8B1CA740E000FE0ED2 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		ABD1FC4A1CB34BC000B4D807 /* PlantSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlantSettingViewController.swift; sourceTree = "<group>"; };
 		ABD7F1FE1CB2EDC600F6DDE3 /* NotificationThreshold.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationThreshold.swift; sourceTree = "<group>"; };
+		ABE198601CB803950041E6C4 /* SocketIOClientSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIOClientSwift.framework; path = Carthage/Build/iOS/SocketIOClientSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABE198611CB803950041E6C4 /* SocketIOClientSwift.framework in Frameworks */,
 				AB211F681CB5EFD100A21E44 /* Charts.framework in Frameworks */,
 				AB3C86151CA59F1B00190E42 /* SwiftyJSON.framework in Frameworks */,
 				AB3C86131CA59A0F00190E42 /* SwiftHTTP.framework in Frameworks */,
@@ -166,6 +169,7 @@
 		AB20AA981C9280310043C791 = {
 			isa = PBXGroup;
 			children = (
+				ABE198601CB803950041E6C4 /* SocketIOClientSwift.framework */,
 				AB211F591CB5EFA300A21E44 /* Charts.xcodeproj */,
 				AB3C86141CA59F1B00190E42 /* SwiftyJSON.framework */,
 				AB3C86121CA59A0F00190E42 /* SwiftHTTP.framework */,
@@ -425,6 +429,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftHTTP.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SocketIOClientSwift.framework",
 			);
 			outputPaths = (
 			);

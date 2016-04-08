@@ -9,6 +9,7 @@
 import UIKit
 import Charts
 import SwiftyJSON
+import SocketIOClientSwift
 
 class PlantChartViewController: UIViewController, UITabBarDelegate, APIRequestDelegate {
     @IBOutlet weak var metricBar: UITabBar!
@@ -18,6 +19,8 @@ class PlantChartViewController: UIViewController, UITabBarDelegate, APIRequestDe
     var sensorIdealData: [String: Double]?
     var plantID : Int?
     var selectedSensor : String?
+    
+    var socket : SocketIOClient?
     
     @IBOutlet weak var radarChartView: RadarChartView!
     @IBOutlet weak var lineChartView: LineChartView!
@@ -41,6 +44,14 @@ class PlantChartViewController: UIViewController, UITabBarDelegate, APIRequestDe
         metricBar.selectedItem = waterItem
         let apiRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/plants/\(plantID!)/logs")
         apiRequest.sendGETRequest(self)
+        socket = SocketIOClient(socketURL: NSURL(string: "http://\(Config.greenhouse)")!, options: [.Nsp("/plants")])
+        socket!.on("connect") {data, ack in
+            print("Logs: socket connected")
+        }
+        socket!.on("data-update") {data, ack in
+            apiRequest.sendGETRequest(self)
+        }
+        socket!.connect()
     }
 
     func handleData(data: NSData!) {

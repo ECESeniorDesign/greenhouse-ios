@@ -1,3 +1,5 @@
 github "daltoniam/SwiftHTTP" >= 1.0.4
 github "SwiftyJSON/SwiftyJSON"
 github "danielgindi/Charts" ~> 2.2.4
+github "socketio/socket.io-client-swift" ~> 6.0.0
+

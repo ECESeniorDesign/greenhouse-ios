@@ -108,6 +108,10 @@ class PlantDetailViewController: UIViewController, APIRequestDelegate {
                     plantSettingsVC.plant = plant
                 }
             }
+        } else if segue.identifier == "plantChartSegue" {
+            if let chartVC = segue.destinationViewController as? PlantChartViewController {
+                chartVC.plantID = plant?.slotID
+            }
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

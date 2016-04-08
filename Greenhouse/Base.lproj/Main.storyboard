@@ -1384,7 +1384,7 @@
                                 <items>
                                     <barButtonItem title="Logs" id="8tz-Sk-tRP">
                                         <connections>
-                                            <segue destination="UOj-O5-4i6" kind="show" id="9mC-4M-ToG"/>
+                                            <segue destination="UOj-O5-4i6" kind="show" identifier="plantChartSegue" id="9mC-4M-ToG"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

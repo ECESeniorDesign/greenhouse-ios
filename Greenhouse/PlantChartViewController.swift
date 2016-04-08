@@ -8,19 +8,23 @@
 
 import UIKit
 import Charts
+import SwiftyJSON
 
-class PlantChartViewController: UIViewController, UITabBarDelegate {
+class PlantChartViewController: UIViewController, UITabBarDelegate, APIRequestDelegate {
     @IBOutlet weak var metricBar: UITabBar!
     
     @IBOutlet weak var waterItem: UITabBarItem!
     var sensorHistoryData: [String: [Double]]?
     var sensorIdealData: [String: Double]?
+    var plantID : Int?
+    var selectedSensor : String?
     
     @IBOutlet weak var radarChartView: RadarChartView!
     @IBOutlet weak var lineChartView: LineChartView!
 
     func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
         let metric = item.title!.lowercaseString
+        self.selectedSensor = metric
         let labels = (0..<(sensorHistoryData?[metric]!.count)!).reverse().map({ val in "\(val * 10)" })
         setHistoryChart(metric, dataPoints: labels, values: sensorHistoryData![metric]!)
     }
@@ -32,30 +36,42 @@ class PlantChartViewController: UIViewController, UITabBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Don't hardcode
-        sensorHistoryData = [
-            "light": [10.0, 20.0, 30.0, 40.0],
-            "water": [50.0, 40.0, 70.0, 20.0],
-            "humidity": [10, 30, 20, 40],
-            "temperature": [55.0, 65.0, 75.0, 85.0]
-        ]
-        sensorIdealData = ["water": 57.0, "light": 93.0, "temperature": 22.1, "humidity": 76.8]
-
-        setToleranceChart(sensorIdealData!)
-
         // Default to using water info
+        self.selectedSensor = "water"
         metricBar.selectedItem = waterItem
-        displayHistoryChart("water")
-        // Do any additional setup after loading the view.
+        let apiRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/plants/\(plantID!)/logs")
+        apiRequest.sendGETRequest(self)
     }
 
+    func handleData(data: NSData!) {
+        sensorHistoryData = [:]
+        sensorIdealData = [:]
+        if let dataValue = data {
+            let json = JSON(data: dataValue)
+            let history = json["history"]
+            let ideal = json["ideal"]
+            for (sensor, _) in history.dictionary! {
+                sensorHistoryData![sensor] = history.dictionary![sensor]!.dictionary!["datasets"]![0].dictionary!["data"]?.arrayObject as? [Double]
+            }
+            for idealDict in ideal.array! {
+                sensorIdealData![idealDict["label"].string!.lowercaseString] = idealDict["value"].double!
+            }
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            self.setToleranceChart(self.sensorIdealData!)
+            self.displayHistoryChart(self.selectedSensor!)
+        })
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     func setToleranceChart(data: [String: Double]) {
+        radarChartView.clear()
         var dataPoints : [String] = []
         var values : [Double] = []
         for (pt, val) in data {
@@ -77,9 +93,15 @@ class PlantChartViewController: UIViewController, UITabBarDelegate {
         radarChartView.drawMarkers = false
         radarChartView.yAxis.labelCount = 4
         radarChartView.yAxis.axisMaxValue = 100
+        radarChartView.yAxis.axisMinValue = 0
+        radarChartView.setNeedsDisplay()
+        radarChartView.notifyDataSetChanged()
+        radarChartView.hidden = false
+        radarChartView.userInteractionEnabled = false
     }
 
     func setHistoryChart(label: String, dataPoints: [String], values: [Double]) {
+        lineChartView.clear()
         var dataEntries : [ChartDataEntry] = []
         for i in 0..<dataPoints.count {
             let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
@@ -106,6 +128,9 @@ class PlantChartViewController: UIViewController, UITabBarDelegate {
         lineChartView.rightYAxisRenderer.yAxis?.drawGridLinesEnabled = false
         lineChartView.rightYAxisRenderer.yAxis?.drawLabelsEnabled = false
         lineChartView.legend.enabled = false
+        lineChartView.setNeedsDisplay()
+        lineChartView.notifyDataSetChanged()
+        lineChartView.hidden = false
     }
     
     /*

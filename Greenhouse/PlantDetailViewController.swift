@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+import SocketIOClientSwift
 
 class PlantDetailViewController: UIViewController, APIRequestDelegate {
     @IBOutlet weak var plantImage: UIImageView!
@@ -19,6 +20,7 @@ class PlantDetailViewController: UIViewController, APIRequestDelegate {
 
     @IBOutlet weak var plantName: UINavigationItem!
     var plant : ParsedPlant?
+    var socket : SocketIOClient?
     
     func loadPlant() {
         displayBasicInfo()
@@ -57,8 +59,10 @@ class PlantDetailViewController: UIViewController, APIRequestDelegate {
             inputFormatter.dateFormat = "eee, d MMM yyyy HH:mm:ss z"
             self.plant?.matureOn = inputFormatter.dateFromString(plantData["mature_on"].string!)
             // Display the info
-            displayBasicInfo()
-            displayFullInfo()
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                self.displayBasicInfo()
+                self.displayFullInfo()
+            })
         } else {
             print("handleData received no data")
         }
@@ -70,7 +74,7 @@ class PlantDetailViewController: UIViewController, APIRequestDelegate {
         let water = self.plant!.water!["current"]!
         currentWater.text = String(water)
         let humidity = self.plant!.humidity!["current"]!
-        currentHumidity.text = String(format: "%.1f%%", humidity * 100)
+        currentHumidity.text = String(format: "%.1f%%", humidity)
         let temperature = self.plant!.temperature!["current"]!
         currentTemperature.text = String(format: "%.1f °F", temperature)
         let outputFormatter = NSDateFormatter()
@@ -92,6 +96,14 @@ class PlantDetailViewController: UIViewController, APIRequestDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadPlant()
+        socket = SocketIOClient(socketURL: NSURL(string: "http://\(Config.greenhouse)")!, options: [.Nsp("/plants")])
+        socket!.on("connect") {data, ack in
+            print("Plant: socket connected")
+        }
+        socket!.on("data-update") {data, ack in
+            self.loadPlant()
+        }
+        socket!.connect()
         // Do any additional setup after loading the view.
     }
     

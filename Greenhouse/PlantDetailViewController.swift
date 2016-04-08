@@ -23,10 +23,15 @@ class PlantDetailViewController: UIViewController, APIRequestDelegate {
     var socket : SocketIOClient?
     
     @IBAction func deleteButtonPressed(sender: AnyObject) {
-        socket?.disconnect()
-        let apiRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/plants/\(plant!.slotID!)")
-        apiRequest.sendDeleteRequest()
-        performSegueWithIdentifier("deletedPlantSegue", sender: self)
+        let alert = UIAlertController(title: "Delete Plant", message: "Are you sure you want to remove \(plant!.name!) from the greenhouse?", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {action in
+            self.socket?.disconnect()
+            let apiRequest = APIRequest(urlString: "http://\(Config.greenhouse)/api/plants/\(self.plant!.slotID!)")
+            apiRequest.sendDeleteRequest()
+            self.performSegueWithIdentifier("deletedPlantSegue", sender: self)
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     func loadPlant() {

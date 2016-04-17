@@ -11,7 +11,7 @@ import Foundation
 class Config : NSObject {
     static let defaultGreenhouse  = "10.32.0.101"
     static var greenhouse : String! {
-        return "\(NSUserDefaults.standardUserDefaults().stringForKey("greenhouseIPAddress")!):5000"
+        return "\(NSUserDefaults.standardUserDefaults().stringForKey("greenhouseIPAddress")!)"
     }
-    static let plant_database = "10.32.0.101:4000"
+    static let plant_database = "greenhouse.conklins.net"
 }
